@@ -8,7 +8,7 @@ export default function Home() {
 			</h1>
 			<>
 				I own PrikolsHub and I made 112-SB, ModulePack and DashUI.
-				I am also a gay furry.
+				If you didn't know, I am also a gay furry.
 			</>
 			<a href="https://discord.gg/y3xCjzFUDK">Discord</a>
 		</div>
