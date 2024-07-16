@@ -7,7 +7,8 @@ export interface BanEntry {
 	bannedUntil?: number | undefined,
 	permBan?: boolean | undefined,
 	crashBan?: boolean | undefined,
-	banProviderIcon: string
+	banProviderIcon: string,
+	isLegacy112Ban?: boolean
 }
 
 export interface BanData<T> {
@@ -64,7 +65,8 @@ export async function get112Ban(userid: string): Promise<BanEntry | null> {
 			reason: ud.Reason,
 			bannedUntil: ud.Expiry,
 			permBan: (ud.Expiry === 0),
-			banProviderIcon: "/ban_handlers/112.webp"
+			banProviderIcon: "/ban_handlers/112.webp",
+			isLegacy112Ban: (ud.Moderator === "112-SB")
 		};
 		return d;
 	}
@@ -124,7 +126,8 @@ export type BanReturns = {
 	profilePicture: string,
 	displayName: string,
 	userId: number,
-	bans: BanEntry[]
+	bans: BanEntry[],
+	userDescription: string
 }
 
 export async function getBanInformation(userName: string): Promise<BanReturns | null> {
@@ -153,7 +156,8 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 		displayName: userdata.DisplayName,
 		profilePicture: userdata.AvatarImageUrl,
 		userId: userdata.UserId,
-		bans: banProviderData
+		bans: banProviderData,
+		userDescription: userdata.Description || "No Description..."
 	};
 
 	return retval;

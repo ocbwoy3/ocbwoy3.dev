@@ -40,7 +40,7 @@ export default function Home() {
 	return (
 		<>
 			{banInfo ? (
-				<div className="absolute top-[10px] left-[10px]">
+				<div className="absolute top-[10px] left-[10px] z-20">
 					<Button onClick={openUsernameInputModal} className="pointer-events-auto">Lookup</Button>
 				</div>
 			) : (<></>)}
@@ -50,17 +50,21 @@ export default function Home() {
 				APIs for Karma, Nova and the Goober Project are provided by third parties.
 			</div>
 
-			<div className="w-screen h-screen absolute flex items-center justify-center z-10 pointer-events-none">
-				{banInfo ? (
-					<GlobalBanShowThingy banData={banInfo} className="pointer-events-auto" />
-				) : (
-					<div className="grid-cols-1 text-center">
-						<span className="lg-large">Welcome to OCbwoy3&apos;s Global Ban Checker!<br/>Click the button below to get started!</span>
-						<br/><br/>
-						<Button onClick={openUsernameInputModal} className="pointer-events-auto">Search Global Bans</Button>
+			{banInfo ? (
+				<div className="w-screen h-screen absolute flex items-center justify-center z-10">
+					<div className="grid-cols-1">
+						<GlobalBanShowThingy banData={banInfo} />
 					</div>
-				)}
-			</div>
+				</div>
+			) : (
+				<div className="w-screen h-screen absolute flex items-center justify-center z-10">
+					<div className="grid-cols-1 text-center">
+						<span className="lg-large">Welcome to OCbwoy3&apos;s Global Ban Checker!<br />Click the button below to get started!</span>
+						<br /><br />
+						<Button onClick={openUsernameInputModal}>Search Global Bans</Button>
+					</div>
+				</div>
+			)}
 		</>
 	);
 }

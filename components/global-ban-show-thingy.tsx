@@ -54,9 +54,15 @@ export function GlobalBanShowThingy(props:any) {
           <div className="grid gap-1 flex-1">
             <div className="text-base text-foreground">{be.reason}</div>
             {
-              (be.moderator === "Unknown") ? null : (<div className="text-sm text-muted-foreground">Moderator: {be.moderator ? be.moderator : "?"}</div>)
+              (be.isLegacy112Ban === true) ? (<div className="text-sm text-muted-foreground">Banned with an older 112 version.</div>) : (
+              <>
+                {
+                  (be.moderator === "Unknown") ? null : (<div className="text-sm text-muted-foreground">Moderator: {be.moderator ? be.moderator : "?"}</div>)
+                }
+                <div className="text-sm text-muted-foreground">{ (be.permBan === true) ? "Banned Forever" : `Banned until ${stupidDate.toLocaleDateString('en-US')} ${stupidDate.toLocaleTimeString('en-US')}` }</div>
+              </>
+              )
             }
-            <div className="text-sm text-muted-foreground">{ (be.permBan === true) ? "Banned Forever" : `Banned until ${stupidDate.toLocaleDateString('en-US')} ${stupidDate.toLocaleTimeString('en-US')}` }</div>
           </div>
         </TooltipProvider>
       </div>
@@ -73,11 +79,10 @@ export function GlobalBanShowThingy(props:any) {
             <AvatarFallback>{bd.displayName.charAt(0)}</AvatarFallback>
           </Avatar>
           <div className="grid gap-1">
-            <Link href="#" className="text-xl font-bold" prefetch={false}>
-              {bd.displayName}
+            <Link href={`https://roblox.com/users/${bd.userId}`} className="text-xl font-bold" prefetch={false}>
+              {bd.displayName} <span className="text-sm text-muted-foreground">@{bd.username}</span>
             </Link>
-            <div className="text-sm text-muted-foreground">@{bd.username}</div>
-            <div className="text-sm text-muted-foreground">User ID: {bd.userId}</div>
+            <div className="text-sm text-muted-foreground">{bd.userDescription.trim().slice(0,128).trim()}</div>
           </div>
         </div>
       </CardHeader>
