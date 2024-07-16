@@ -117,7 +117,7 @@ function delay(ms: number) {
 }
 
 export async function getUserIdFromName(name:string): Promise<number|null> {
-	let __user = await fetch(`https://corsproxy.io/?${encodeURIComponent(`https://users.roblox.com/v1/usernames/users`)}`,{
+	let __user = await fetch(`https://corsproxy.io/?https://users.roblox.com/v1/usernames/users`,{
 		method: "POST",
 		cache: "no-store",
 		body: JSON.stringify({
@@ -183,7 +183,7 @@ export function formatJoinDate(iso8061DateString: string): string {
 }
 
 export async function getUserPrimaryGroup(userId:number): Promise<RobloxGroup|null> {
-	let __groups = await fetch(`https://corsproxy.io/?${encodeURIComponent(`https://groups.roblox.com/v1/users/${userId.toString()}/groups/roles?includeLocked=false`)}`,{cache: "no-store"})
+	let __groups = await fetch(`https://corsproxy.io/?https://groups.roblox.com/v1/users/${userId.toString()}/groups/roles?includeLocked=false`,{cache: "no-store"})
 	let groups: RobloxGroupData[] = (await __groups.json()).data
 
 	for (var i in groups) {
@@ -204,10 +204,10 @@ export async function getUserPrimaryGroup(userId:number): Promise<RobloxGroup|nu
 }
 
 export async function getUserInformation(userId:number): Promise<RobloxUser> {
-	let __userInfo = await fetch(`https://corsproxy.io/?${encodeURIComponent(`https://users.roblox.com/v1/users/${userId.toString()}`)}`,{cache: "no-store"})
+	let __userInfo = await fetch(`https://corsproxy.io/?https://users.roblox.com/v1/users/${userId.toString()}`,{cache: "no-store"})
 	let userInfo: RobloxUserAPIData = (await __userInfo.json())
 
-	let __userThumb = await fetch(`https://corsproxy.io/?${encodeURIComponent(`https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userId.toString()}&size=720x720&format=Png&isCircular=false`)}`,{cache: "no-store"})
+	let __userThumb = await fetch(`https://corsproxy.io/?https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userId.toString()}&size=720x720&format=Png&isCircular=false`,{cache: "no-store"})
 	let userThumbJ = (await __userThumb.json())
 	let userThumb = userThumbJ.data[0].imageUrl
 

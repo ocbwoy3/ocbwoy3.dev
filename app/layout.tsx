@@ -17,6 +17,9 @@ const inter = Inter({
   display: 'swap',
 })
 
+import { VercelToolbar } from '@vercel/toolbar/next';
+import { Suspense } from "react";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,6 +31,9 @@ export default function RootLayout({
         {children}
         <Toaster />
         <SpeedInsights/>
+        <Suspense>
+          <VercelToolbar/>
+        </Suspense>
       </body>
     </html>
   );

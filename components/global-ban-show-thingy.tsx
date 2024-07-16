@@ -29,6 +29,9 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 export function GlobalBanShowThingy(props:any) {
+
+  // console.warn(props)
+
   const bd: BanReturns = props.banData
 
   // Devoted PrikolsHub-ian ban stuff
@@ -38,7 +41,7 @@ export function GlobalBanShowThingy(props:any) {
 
     const stupidDate = new Date(((be.bannedUntil as number) || 0)*1000)
     const d = (
-      <div className="flex items-center gap-4 p-4 rounded-lg bg-muted">
+      <div key={`${Date.now()}-${Math.random()}`} className="flex items-center gap-4 p-4 rounded-lg bg-muted">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -67,7 +70,7 @@ export function GlobalBanShowThingy(props:any) {
         <div className="flex items-center gap-4">
           <Avatar className="w-16 h-16">
             <AvatarImage src={bd.profilePicture} />
-            <AvatarFallback>?</AvatarFallback>
+            <AvatarFallback>{bd.displayName.charAt(0)}</AvatarFallback>
           </Avatar>
           <div className="grid gap-1">
             <Link href="#" className="text-xl font-bold" prefetch={false}>

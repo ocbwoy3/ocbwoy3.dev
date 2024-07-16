@@ -2,11 +2,11 @@ import { RobloxUser, getUserIdFromName, getUserInformation } from "./roblox"
 
 export interface BanEntry {
 	banProvider: string
-	moderator?: string|undefined,
+	moderator?: string | undefined,
 	reason?: string,
-	bannedUntil?: number|undefined,
-	permBan?: boolean|undefined,
-	crashBan?: boolean|undefined,
+	bannedUntil?: number | undefined,
+	permBan?: boolean | undefined,
+	crashBan?: boolean | undefined,
 	banProviderIcon: string
 }
 
@@ -24,7 +24,7 @@ type theGooberProject = {
 }
 
 // The Goober Project
-export async function getTGPBan(userid:string): Promise<BanEntry|null> {
+export async function getTGPBan(userid: string): Promise<BanEntry | null> {
 	const rawdata = await fetch("https://corsproxy.io?https://cndfker.doqe.dev/api/bans");
 	const data: BanData<theGooberProject> = await rawdata.json();
 
@@ -52,7 +52,7 @@ type sb112 = {
 }
 
 // 112-SB / PrikolsHub
-export async function get112Ban(userid:string): Promise<BanEntry|null> {
+export async function get112Ban(userid: string): Promise<BanEntry | null> {
 	const rawdata = await fetch("https://corsproxy.io?https://api.ocbwoy3.dev/.prikolshub/banland.json");
 	const data: BanData<sb112> = await rawdata.json();
 
@@ -77,7 +77,7 @@ type nexusLike = {
 }
 
 // Nova
-export async function getNovaBan(userid:string): Promise<BanEntry|null> {
+export async function getNovaBan(userid: string): Promise<BanEntry | null> {
 	const rawdata = await fetch("https://corsproxy.io?https://api.scriptlang.com/bans");
 	const data: BanData<nexusLike> = await rawdata.json();
 
@@ -98,7 +98,7 @@ export async function getNovaBan(userid:string): Promise<BanEntry|null> {
 
 
 // Karma
-export async function getKarmaBan(userid:string): Promise<BanEntry|null> {
+export async function getKarmaBan(userid: string): Promise<BanEntry | null> {
 	const rawdata = await fetch("https://corsproxy.io?https://karma.doqe.dev/bans");
 	const data: BanData<nexusLike> = await rawdata.json();
 
@@ -127,26 +127,27 @@ export type BanReturns = {
 	bans: BanEntry[]
 }
 
-export async function getBanInformation(userName:string): Promise<BanReturns|null> {
-	const userid: number|null = await getUserIdFromName(userName);
+export async function getBanInformation(userName: string): Promise<BanReturns | null> {
+	const userid: number | null = await getUserIdFromName(userName);
 	if (!userid) return null;
 	const userdata: RobloxUser = await getUserInformation(userid);
 
 	let banProviderData: BanEntry[] = [];
-	try {
-		let tgp = await getTGPBan(userid.toString()); if (tgp) { banProviderData.push(tgp) };
-	} catch {}
+	
 	try {
 		let sb112 = await get112Ban(userid.toString()); if (sb112) { banProviderData.push(sb112) };
-	} catch {}
+	} catch { }
 	try {
 		let karma = await getKarmaBan(userid.toString()); if (karma) { banProviderData.push(karma) };
-	} catch {}
+	} catch { }
 	try {
 		let nova = await getNovaBan(userid.toString()); if (nova) { banProviderData.push(nova) };
-	} catch {}
+	} catch { }
+	try {
+		let tgp = await getTGPBan(userid.toString()); if (tgp) { banProviderData.push(tgp) };
+	} catch { }
 	
-	
+
 	const retval: BanReturns = {
 		username: userdata.UserName,
 		displayName: userdata.DisplayName,

@@ -1,88 +1,66 @@
 "use client"
- 
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 
-
-const FormSchema = z.object({
-	robloxUsername: z.string()
-		.min(3,{message: "Username must be 3-20 characters long."})
-		.max(20,{message:"Username must be 3-20 characters long."})
-		.regex(/^[a-zA-Z0-9%.%_]+$/i,{message:"Invalid Username."}),
-})
-
 import { GlobalBanShowThingy } from "@/components/global-ban-show-thingy";
 import Image from "next/image";
 import { BanEntry, BanReturns, getBanInformation } from "@/lib/banParser"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { UsernamePromptModal } from "@/components/username-prompt-modal"
 
 export default function Home() {
-	const form = useForm<z.infer<typeof FormSchema>>({
-		resolver: zodResolver(FormSchema),
-		defaultValues: {
-			robloxUsername: "",
-		},
-	})
 
-	const [banInfo,setBanInfo] = useState<BanReturns|null>(null)
+	const [banInfo, setBanInfo] = useState<BanReturns | null>(null)
 
-	async function onSubmit(data: z.infer<typeof FormSchema>) {
-		toast({
-			title: "You submitted the following values:",
-			description: (
-				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-					<code className="text-white">{JSON.stringify(data, null, 2)}</code>
-				</pre>
-			),
-		})
-		const x: BanReturns|null = await getBanInformation(data.robloxUsername)
-		if (x) setBanInfo(x);
+	const wtf = () => { setBanInfo(null) }
+
+	let openUsernameInputModal = () => {
+		((window || global) as any).openUsernameInputModal()
 	}
+
+	useEffect(() => {
+		((window || global) as any).setBanInfo = (x: BanReturns | null) => { setBanInfo(x) }
+	}, [])
 
 	return (
 		<>
+			{banInfo ? (
+				<div className="absolute top-[10px] left-[10px]">
+					<Button onClick={openUsernameInputModal} className="pointer-events-auto">Lookup</Button>
+				</div>
+			) : (<></>)}
+			<UsernamePromptModal />
 			<div className="absolute bottom-[10px] left-[10px] text-xs text-muted-foreground">
-				© OCbwoy3 2024-present<br/>
-				Karma, Nova and TGP APIs provided by third parties. - This website is <a href="https://github.com/ocbwoy3/ocbwoy3.dev/" className="inline_button">open source</a>!
+				© OCbwoy3 2024-present &mdash; <a href="https://github.com/ocbwoy3/ocbwoy3.dev/" className="inline_button">GitHub</a><br />
+				APIs for Karma, Nova and the Goober Project are provided by third parties.
 			</div>
-			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
-					<FormField
-						control={form.control}
-						name="robloxUsername"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Roblox Username</FormLabel>
-								<FormControl>
-									<Input placeholder="OCboy3" {...field} />
-								</FormControl>
-								<FormDescription>
-									Enter a valid Roblox Username to check for global bans. For information about appealing them, please visit <a href="https://docs.ocbwoy3.dev/docs/112/appeal/" className="inline_button">the documentation</a>.
-								</FormDescription>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-					<Button type="submit">Submit</Button>
-				</form>
-			</Form>
-			{ banInfo ? (
-				<GlobalBanShowThingy banData={banInfo}/>
-			) : (<></>) }
+
+			<div className="w-screen h-screen absolute flex items-center justify-center z-10 pointer-events-none">
+				{banInfo ? (
+					<GlobalBanShowThingy banData={banInfo} className="pointer-events-auto" />
+				) : (
+					<div className="grid-cols-1 text-center">
+						<span className="lg-large">Welcome to OCbwoy3&apos;s Global Ban Checker!<br/>Click the button below to get started!</span>
+						<br/><br/>
+						<Button onClick={openUsernameInputModal} className="pointer-events-auto">Search Global Bans</Button>
+					</div>
+				)}
+			</div>
 		</>
 	);
 }
