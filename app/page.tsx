@@ -45,8 +45,8 @@ export default function Home() {
 				</div>
 			) : (<></>)}
 			<UsernamePromptModal />
-			<div className="absolute bottom-[10px] left-[10px] text-xs text-muted-foreground">
-				© OCbwoy3 2024-present &mdash; <a href="https://github.com/ocbwoy3/ocbwoy3.dev/" className="inline_button">GitHub</a><br />
+			<div className="absolute bottom-[10px] left-[10px] text-xs text-muted-foreground z-25">
+				© OCbwoy3 2024-present &mdash; <a href="https://github.com/ocbwoy3/ocbwoy3.dev/" className="text-blue-500 underline pointer-events-auto">GitHub</a><br />
 				APIs for Karma, Nova and the Goober Project are provided by third parties.
 			</div>
 
