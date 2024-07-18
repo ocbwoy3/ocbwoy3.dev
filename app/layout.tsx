@@ -31,9 +31,9 @@ export default function RootLayout({
         {children}
         <Toaster />
         <SpeedInsights/>
-        <Suspense>
+        {/* <Suspense>
           <VercelToolbar/>
-        </Suspense>
+        </Suspense> */}
       </body>
     </html>
   );
