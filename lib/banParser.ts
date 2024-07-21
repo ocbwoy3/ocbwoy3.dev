@@ -26,7 +26,7 @@ type theGooberProject = {
 
 // The Goober Project
 export async function getTGPBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://tgp.doqium.net/api/bans");
+	const rawdata = await fetch("https://corsproxy.io?https://doqium.net/api/bans");
 	const data: BanData<theGooberProject> = await rawdata.json();
 
 	if (data[userid.toString()]) {
