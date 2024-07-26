@@ -20,7 +20,7 @@ import { toast } from "@/components/ui/use-toast"
 import { GlobalBanShowThingy } from "@/components/global-ban-show-thingy";
 import Image from "next/image";
 import { BanEntry, BanReturns, getBanInformation } from "@/lib/banParser"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { UsernamePromptModal } from "@/components/username-prompt-modal"
 
 export default function Home() {
@@ -45,10 +45,6 @@ export default function Home() {
 				</div>
 			) : (<></>)}
 			<UsernamePromptModal />
-			<div className="absolute bottom-[10px] left-[10px] text-xs text-muted-foreground z-25">
-				© OCbwoy3 2024-present &mdash; <a href="https://github.com/ocbwoy3/ocbwoy3.dev/" className="text-blue-500 underline pointer-events-auto">GitHub</a><br />
-				APIs for Karma, Nova and the Goober Project are provided by third parties.
-			</div>
 
 			{banInfo ? (
 				<div className="w-screen h-screen absolute flex items-center justify-center z-10">
