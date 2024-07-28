@@ -38,7 +38,7 @@ export async function getClientIP(): Promise<string> {
 }
 
 export async function getClientInfo(ip:string): Promise<ipinfoOutput> {
-    const d = await fetch(`http://ip-api.com/json/${ip}`)
+    const d = await fetch(`https://corsproxy.io?http://ip-api.com/json/${ip}`)
     const j: ipinfoOutput = await d.json()
     return j
 }
