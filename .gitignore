@@ -35,6 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# secret page
-app/sb/
+# secrets
 public/pfp/

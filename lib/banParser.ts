@@ -80,7 +80,7 @@ type nexusLike = {
 
 // Nova
 export async function getNovaBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://api.scriptlang.com/bans");
+	const rawdata = await fetch("https://corsproxy.io?https://nova.ocbwoy3.dev/bans");
 	const data: BanData<nexusLike> = await rawdata.json();
 
 	if (data[userid.toString()]) {
@@ -101,7 +101,7 @@ export async function getNovaBan(userid: string): Promise<BanEntry | null> {
 
 // Karma
 export async function getKarmaBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://karma.doqe.dev/bans");
+	const rawdata = await fetch("https://corsproxy.io?https://karma.ocbwoy3.dev/bans");
 	const data: BanData<nexusLike> = await rawdata.json();
 
 	if (data[userid.toString()]) {
