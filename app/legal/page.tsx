@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Legal",
-	description: "PrikolsHub's Terms of Service & Privacy Policy",
+	title: "REM'S License Terms",
+	description: "You are free to host your own instance, modify it, fork it and contribute as long as you follow the license terms.",
 	formatDetection: {
 		telephone: false,
 		date: false,
@@ -26,7 +26,7 @@ export default function Legal() {
         <div className="py-16 px-32 text-muted-foreground text-lg">
 			<div className="text-black text-3xl">The REM Remote Admin.</div>
 			<br/>
-			{"This is a FOSS revival of RoControl, and many other Roblox Remote Admins, written in TypeScript. You are free to host your own instance, modify it, fork it, contribute as long as you follow the license terms."}
+			{"This is a FOSS revival of RoControl, and many other Roblox Remote Admins, written in TypeScript. You are free to host your own instance, modify it, fork it and contribute as long as you follow the license terms."}
 			<br/>
 			<br/>
 			
