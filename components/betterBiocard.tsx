@@ -10,7 +10,7 @@ type Link = {
 
 const links: Link[] = [
 	{title:"GBan Lookup",url:"/lookup"},
-	{title:"112 Ban Apeal",url:"/appeal"},
+	{title:"112 Ban Appeal",url:"/appeal"},
 	{title:"Discord",url:"https://discord.gg/y3xCjzFUDK"},
 	{title:"MC Server",url:"/mc"}
 ]
