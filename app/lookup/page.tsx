@@ -56,7 +56,7 @@ export default function Home() {
 			) : (
 				<div className="w-screen h-screen absolute flex items-center justify-center z-10">
 					<div className="grid-cols-1 text-center">
-						<span className="lg-large">Welcome to OCbwoy3&apos;s Global Ban Checker!<br />Click the button below to get started!</span>
+						<span className="lg-large">Click the button below to get started!</span>
 						<br /><br />
 						<Button onClick={openUsernameInputModal}>Search Global Bans</Button>
 					</div>

@@ -72,3 +72,11 @@
   text-decoration: underline;
   color: blue;
 }
+
+@media (pointer: coarse), (pointer: none) {
+  .max-w-xs {
+    margin: 0 auto;
+    justify-content: flex-start;
+  }
+}
+

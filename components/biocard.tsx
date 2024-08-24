@@ -70,8 +70,9 @@ export async function Biocard() {
               <h2 className="text-2xl font-bold">OCbwoy3</h2>
             </div>
             <div className="flex items-center gap-2 text-sm text-primary-foreground/80">
-              <Link href="https://x.com/ocbwoy3" className="flex items-center gap-2" prefetch={false}>
-                Twitter
+              {/* i dont like twitter */}
+              <Link href="https://bsky.app/profile/ocbwoy3.dev" className="flex items-center gap-2" prefetch={false}>
+                Bluesky
               </Link>
               <Link href="https://discord.com/users/486147449703104523" className="flex items-center gap-2" prefetch={false}>
                 Discord

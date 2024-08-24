@@ -1,6 +1,7 @@
-import { Biocard } from "@/components/biocard";
+import { Biocard } from "@/components/betterBiocard";
 import { Metadata } from "next";
 import { ReactNode, Suspense } from "react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
 	title: "Welcome to ocbwoy3.dev",
@@ -59,28 +60,23 @@ export default function Welcome() {
 	return (
 		<div className="flex w-screen h-screen bg-black">
 
+			{/* Background */}
+			<Image className="absolute z-[2] w-screen h-screen object-cover" src="https://cdn.ocbwoy3.dev/assets/rice.png" alt="" width={1920} height={1080}></Image>
+
 			{/* Links */}
-			<div className="text-red-500 text-lg font-mono top-[15px] left-[15px] absolute z-[200] flex flex-col space-y-1">
+			{/* <div className="text-red-500 text-lg font-mono top-[15px] left-[15px] absolute z-[200] flex flex-col space-y-1">
 				{
 					linkNodes.map(x=>x)
 				}
-			</div>
+			</div> */}
 
-			{/* Title */}
-			<div className="w-screen h-screen absolute flex items-center justify-center z-[10]">
-				<div className="grid-cols-1 top-[10%] absolute items-center justify-center">
-					<GlowingText>Welcome to ocbwoy3.dev!</GlowingText>
+			{/* Biocard */}
+			<center className="absolute w-full h-full z-[30] flex flex-col items-center justify-center">
+				<div className="max-w-xs mx-auto sm:w-[95vw] absolute">
+					<Biocard />
 				</div>
-			</div>
+			</center>
 
-			{/* Biography */}
-			<div className="w-screen h-screen absolute flex items-center justify-center z-[15] pointer-events-auto">
-				<div className="grid-cols-1 absolute items-center text-center justify-center text-white text-base pointer-events-auto">
-					<Suspense>
-						<Biocard/>
-					</Suspense>
-				</div>
-			</div>
 		</div>
 	)
 }
