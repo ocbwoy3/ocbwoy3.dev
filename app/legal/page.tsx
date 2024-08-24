@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "REM'S License Terms",
+	title: "REM's License Terms",
 	description: "You are free to host your own instance, modify it, fork it and contribute as long as you follow the license terms.",
 	formatDetection: {
 		telephone: false,
