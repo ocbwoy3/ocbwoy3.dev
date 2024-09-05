@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
 	title: "Global Ban Lookup",
@@ -17,5 +18,9 @@ export default function Layout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return children
+    return (
+		<Suspense>
+			{children}
+		</Suspense>
+	)
 }
