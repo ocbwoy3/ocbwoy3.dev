@@ -23,8 +23,12 @@ import { BanEntry, BanReturns, getBanInformation } from "@/lib/banParser"
 import { Suspense, useEffect, useState } from "react"
 import { UsernamePromptModal } from "@/components/username-prompt-modal"
 import { Metadata } from "next"
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
+
+	const params = useSearchParams()
+	const username: string|null = params.get('u')
 
 	const [banInfo, setBanInfo] = useState<BanReturns | null>(null)
 
@@ -36,7 +40,29 @@ export default function Home() {
 
 	useEffect(() => {
 		((window || global) as any).setBanInfo = (x: BanReturns | null) => { setBanInfo(x) }
+		(async()=>{
+			try {
+				if (username) {
+					toast({
+						title: "ocbwoy3.dev",
+						description: "Fetching inital user"
+					})
+				  
+					  // console.log('fetching')
+				  
+					const x: BanReturns | null = await getBanInformation(username)
+				  
+					  // console.log('fetchd',x)
+				  
+					if (x) {
+						setBanInfo(x);
+						// console.log('sbi')
+					}
+				}
+			} catch {}
+		})()
 	}, [])
+
 
 	return (
 		<>

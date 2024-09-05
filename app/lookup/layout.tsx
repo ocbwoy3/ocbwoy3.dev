@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Global Ban Lookup",
-	description: "THE TOOL to assist you wih global ban lookups.",
+	description: "A tool to assist you wih global ban lookups.",
 	formatDetection: {
 		telephone: false,
 		date: false,

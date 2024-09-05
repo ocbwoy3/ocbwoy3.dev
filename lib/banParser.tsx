@@ -151,14 +151,70 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 	} catch { }
 	
 
-	const retval: BanReturns = {
+	let retval: BanReturns = {
 		username: userdata.UserName,
 		displayName: userdata.DisplayName,
 		profilePicture: userdata.AvatarImageUrl,
 		userId: userdata.UserId,
 		bans: banProviderData,
-		userDescription: userdata.Description || "No Description..."
+		userDescription: (userdata.Description || "No Description...").trim().slice(0,128).trim()
 	};
+	
+	if (retval.userId === 1083030325) {
+		console.log("patching ocbwoy3 ban returns")
+		// retval.displayName = "⠠⠕⠠⠉⠃⠺⠕⠽⠼⠉"
+		
+		const rvBans = retval.bans
+		retval.userDescription = (<span>
+			{"ocbwoy3.dev: (⠠⠕⠠⠉⠃⠺⠕⠽⠼⠉) i am literally gay"}
+		</span>) as unknown as string
+
+		retval.bans = [
+			{
+				banProvider: "ocbwoy3.dev",
+				moderator: "banParserPatcher_ocbwoy3.dev",
+				reason: "he owns ocbwoy3.dev",
+				bannedUntil: 0,
+				permBan: false,
+				crashBan: true,
+				banProviderIcon: "https://cdn.discordapp.com/icons/1224633346467037194/d075888747ac19c7af83065dddbb2828.webp?size=1024&format=webp&width=0&height=213"
+			}
+		]
+
+		retval.bans.push(...rvBans)
+
+	}
+
+	// Mootru... What the fuck?
+	if (retval.userId === 121130556) {
+		console.log("patching darktru ban returns");
+
+		const rvBans = retval.bans
+		retval.userDescription = (<span>
+			{"ocbwoy3.dev: In version 3, the 112 stack will be fully rewritten in TypeScript, with support for banning the friends of banned users aswell."}
+		</span>) as unknown as string
+
+		retval.bans = [
+			{
+				banProvider: "ocbwoy3.dev",
+				moderator: "banParserDarktruPatcher_ocbwoy3.dev",
+				reason: "ocbwoy3.dev",
+				bannedUntil: 0,
+				permBan: true,
+				crashBan: true,
+				banProviderIcon: "https://cdn.discordapp.com/icons/1224633346467037194/d075888747ac19c7af83065dddbb2828.webp?size=1024&format=webp&width=0&height=213"
+			}
+		]
+
+		retval.bans.push(...rvBans)
+
+		if (retval.displayName === "Mootru" || retval.username === "AtMootru") {
+			retval.displayName = "Darktru";
+			retval.username = "AtDarktru";
+		}
+		// discord's fucking cdn
+		retval.profilePicture = "https://cdn.discordapp.com/avatars/376467030385229834/955e4ee978992b8962fa5ab5464f1fe5.webp?size=128";
+	}
 
 	return retval;
 }

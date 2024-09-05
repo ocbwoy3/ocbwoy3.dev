@@ -73,7 +73,7 @@ export function GlobalBanShowThingy(props:any) {
   })
 
   return (
-    <Card className="w-full max-w-2xl mx-auto">
+    <Card className="w-full max-w-2xl mx-auto min-w-[600px]">
       <CardHeader className="bg-primary/10 p-6">
         <div className="flex items-center gap-4">
           <Avatar className="w-16 h-16">
@@ -84,7 +84,7 @@ export function GlobalBanShowThingy(props:any) {
             <Link href={`https://roblox.com/users/${bd.userId}`} className="text-xl font-bold" prefetch={false}>
               {bd.displayName} <span className="text-sm text-muted-foreground">@{bd.username}</span>
             </Link>
-            <div className="text-sm text-muted-foreground">{bd.userDescription.trim().slice(0,128).trim()}</div>
+            <div className="text-sm text-muted-foreground">{bd.userDescription}</div>
           </div>
         </div>
       </CardHeader>

@@ -58,7 +58,7 @@ export default function Legal() {
 		{
 			title: "Issues",
 			description: (<span>
-				{"You should report any issues, vulnerabilities, bugs or suggest new issues or ideas by "}
+				{"You should report any issues, vulnerabilities, bugs or suggest new features or ideas by "}
 				<a href="https://github.com/ocbwoy3/rem/issues/new" className="text-cyan-400 underline">{"making your own issue"}</a>
 				{" on our GitHub."}
 			</span>)
