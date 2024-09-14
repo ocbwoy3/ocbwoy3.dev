@@ -60,11 +60,11 @@ export async function get112Ban(userid: string): Promise<BanEntry | null> {
 	if (data[userid.toString()]) {
 		const ud: sb112 = data[userid.toString()]
 		let d: BanEntry = {
-			banProvider: "112 (PrikolsHub)",
+			banProvider: "112",
 			moderator: ud.Moderator,
 			reason: ud.Reason,
 			bannedUntil: ud.Expiry,
-			permBan: (ud.Expiry === 0),
+			permBan: (ud.Expiry === 0 || ud.Expiry === -1),
 			banProviderIcon: "/ban_handlers/112.webp",
 			isLegacy112Ban: (ud.Moderator === "112-SB")
 		};
