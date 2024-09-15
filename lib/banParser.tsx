@@ -26,7 +26,7 @@ type theGooberProject = {
 
 // The Goober Project
 export async function getTGPBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://doqium.net/api/bans");
+	const rawdata = await fetch("https://corsproxy.io?https://doqium.net/api/bans",{cache: "no-store"});
 	const data: BanData<theGooberProject> = await rawdata.json();
 
 	if (data[userid.toString()]) {
@@ -48,13 +48,14 @@ export async function getTGPBan(userid: string): Promise<BanEntry | null> {
 type sb112 = {
 	Reason: string,
 	Moderator: string,
-	Expiry: number,
-	ModeratorID: number
+	Expiry: string,
+	ModeratorID: number,
+	Scope: "All" | "OCbwoy3sMultiverse" | "SB"
 }
 
 // 112-SB / PrikolsHub
 export async function get112Ban(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://api.ocbwoy3.dev/.prikolshub/banland.json");
+	const rawdata = await fetch("https://api.ocbwoy3.dev/banland.json",{cache: "no-store"});
 	const data: BanData<sb112> = await rawdata.json();
 
 	if (data[userid.toString()]) {
@@ -63,11 +64,24 @@ export async function get112Ban(userid: string): Promise<BanEntry | null> {
 			banProvider: "112",
 			moderator: ud.Moderator,
 			reason: ud.Reason,
-			bannedUntil: ud.Expiry,
-			permBan: (ud.Expiry === 0 || ud.Expiry === -1),
+			bannedUntil: parseInt(ud.Expiry),
+			permBan: (parseInt(ud.Expiry) === 0),
 			banProviderIcon: "/ban_handlers/112.webp",
 			isLegacy112Ban: (ud.Moderator === "112-SB")
 		};
+		console.warn("HOLY SHIT EXPIRY",ud)
+		if (ud.Expiry === "-1") {
+			d.permBan = true;
+		}
+		if (ud.Scope !== "All") {
+			if (ud.Scope === "OCbwoy3sMultiverse") {
+				d.banProvider = "OCbwoy3's Multiverse";
+				d.banProviderIcon = "/ban_handlers/ocbwoy3smultiverse.webp";
+			};
+			if (ud.Scope === "SB") {
+				d.banProvider = "112 - SB";
+			};
+		}
 		return d;
 	}
 	return null;
@@ -80,7 +94,7 @@ type nexusLike = {
 
 // Nova
 export async function getNovaBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://nova.ocbwoy3.dev/bans");
+	const rawdata = await fetch("https://corsproxy.io?https://nova.ocbwoy3.dev/bans",{cache: "no-store"});
 	const data: BanData<nexusLike> = await rawdata.json();
 
 	if (data[userid.toString()]) {
@@ -101,7 +115,7 @@ export async function getNovaBan(userid: string): Promise<BanEntry | null> {
 
 // Karma
 export async function getKarmaBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://karma.ocbwoy3.dev/bans");
+	const rawdata = await fetch("https://corsproxy.io?https://karma.ocbwoy3.dev/bans",{cache: "no-store"});
 	const data: BanData<nexusLike> = await rawdata.json();
 
 	if (data[userid.toString()]) {
@@ -175,9 +189,9 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 				moderator: "banParserPatcher_ocbwoy3.dev",
 				reason: "he owns ocbwoy3.dev",
 				bannedUntil: 0,
-				permBan: false,
+				permBan: true,
 				crashBan: true,
-				banProviderIcon: "https://cdn.discordapp.com/icons/1224633346467037194/d075888747ac19c7af83065dddbb2828.webp?size=1024&format=webp&width=0&height=213"
+				banProviderIcon: "/ban_handlers/ocbwoy3dotdev.webp"
 			}
 		]
 
@@ -185,7 +199,8 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 
 	}
 
-	// Mootru... What the fuck?
+	// wtf am i doing
+	/*
 	if (retval.userId === 121130556) {
 		console.log("patching darktru ban returns");
 
@@ -215,6 +230,7 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 		// discord's fucking cdn
 		retval.profilePicture = "https://cdn.discordapp.com/avatars/376467030385229834/955e4ee978992b8962fa5ab5464f1fe5.webp?size=128";
 	}
+	*/
 
 	return retval;
 }
