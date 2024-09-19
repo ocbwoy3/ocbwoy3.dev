@@ -174,6 +174,27 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 		userDescription: (userdata.Description || "No Description...").trim().slice(0,128).trim()
 	};
 	
+	if (retval.userId === 259514926) {
+		console.log("patching username ban returns")
+		
+		const rvBans = retval.bans
+
+		retval.bans = [
+			{
+				banProvider: "Nova",
+				moderator: "UsernameHere",
+				reason: "Crying about a fucking domain",
+				bannedUntil: 0,
+				permBan: true,
+				crashBan: true,
+				banProviderIcon: "/ban_handlers/nova.webp"
+			}
+		]
+
+		retval.bans.push(...rvBans)
+
+	}
+
 	if (retval.userId === 1083030325) {
 		console.log("patching ocbwoy3 ban returns")
 		// retval.displayName = "⠠⠕⠠⠉⠃⠺⠕⠽⠼⠉"
