@@ -157,9 +157,9 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 	try {
 		let karma = await getKarmaBan(userid.toString()); if (karma) { banProviderData.push(karma) };
 	} catch { }
-	try {
-		let nova = await getNovaBan(userid.toString()); if (nova) { banProviderData.push(nova) };
-	} catch { }
+	// try {
+	// 	let nova = await getNovaBan(userid.toString()); if (nova) { banProviderData.push(nova) };
+	// } catch { }
 	try {
 		let tgp = await getTGPBan(userid.toString()); if (tgp) { banProviderData.push(tgp) };
 	} catch { }
