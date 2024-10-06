@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export const metadata: Metadata = {
 	title: "REM's Server Rules",
-	description: "You musr follow them or you will be banned from our Discord.",
+	description: "You must follow them or you will be banned from our Discord.",
 	formatDetection: {
 		telephone: false,
 		date: false,
@@ -54,6 +54,11 @@ export default function Legal() {
 			title: "Advertising",
 			description: "You may not advertise your Discord Server unless allowed by an administrator. This includes DMing fellow server members.",
 			punishment: "Kick"
+		},
+		{
+			title: "Handle Impersonation",
+			description: "You may not abuse the handle change command to impersonate goverment entitited or any similar, such as changing your handle to cia.gov or president.lv.",
+			punishment: "Handle Change Ban"
 		},
 		{
 			title: "Issues",
