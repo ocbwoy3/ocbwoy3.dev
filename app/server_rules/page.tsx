@@ -56,8 +56,8 @@ export default function Legal() {
 			punishment: "Kick"
 		},
 		{
-			title: "Handle Impersonation",
-			description: "You may not abuse the handle change command to impersonate goverment entitited or any similar, such as changing your handle to cia.gov or president.lv.",
+			title: "Handles and DIDs",
+			description: "You may not abuse the handle change command to impersonate goverment entitites or server members, such as changing your handle to cia.gov or ocbwoy3.dev. You are not allowed to use any Russian TLDs or goverment-related websites as your handle. You may also not store User DID identifiers and handles. Looking at you, nova.scriptlang.com.",
 			punishment: "Handle Change Ban"
 		},
 		{
