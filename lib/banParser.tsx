@@ -92,27 +92,6 @@ type nexusLike = {
 	reason: string
 }
 
-// Nova
-export async function getNovaBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://nova.ocbwoy3.dev/bans",{cache: "no-store"});
-	const data: BanData<nexusLike> = await rawdata.json();
-
-	if (data[userid.toString()]) {
-		const ud: nexusLike = data[userid.toString()]
-		let d: BanEntry = {
-			banProvider: "Nova",
-			moderator: "Unknown",
-			reason: ud.reason,
-			bannedUntil: 0,
-			permBan: true,
-			banProviderIcon: "/ban_handlers/nova.webp"
-		};
-		return d;
-	}
-	return null;
-}
-
-
 // Karma
 export async function getKarmaBan(userid: string): Promise<BanEntry | null> {
 	const rawdata = await fetch("https://corsproxy.io?https://karma.ocbwoy3.dev/bans",{cache: "no-store"});
@@ -158,7 +137,8 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 		let karma = await getKarmaBan(userid.toString()); if (karma) { banProviderData.push(karma) };
 	} catch { }
 	try {
-		let nova = await getNovaBan(userid.toString()); if (nova) { banProviderData.push(nova) };
+		// frick this
+		// let nova = await getNovaBan(userid.toString()); if (nova) { banProviderData.push(nova) };
 	} catch { }
 	try {
 		let tgp = await getTGPBan(userid.toString()); if (tgp) { banProviderData.push(tgp) };
@@ -179,11 +159,12 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 		
 		const rvBans = retval.bans
 
+		// username insecure about himself so he bans me and i ban him back with this
 		retval.bans = [
 			{
 				banProvider: "Nova",
-				moderator: "UsernameHere",
-				reason: "Crying about a fucking domain",
+				moderator: "OCbwoy3",
+				reason: atob("YSBmdWNraW5nIGlkaW90ISEhISEhIQ=="),
 				bannedUntil: 0,
 				permBan: true,
 				crashBan: true,
