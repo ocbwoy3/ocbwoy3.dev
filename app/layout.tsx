@@ -26,22 +26,20 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>
-				{children}
-				<Toaster />
-				<SpeedInsights/>
-				<Suspense>
-					{/*<div className="absolute bottom-[10px] left-[10px] text-xs text-muted-foreground z-[9999]">
-						© OCbwoy3 2024-present &mdash; <a href="https://github.com/ocbwoy3/ocbwoy3.dev/" className="text-blue-500 underline pointer-events-auto z-501">Source</a><br/>
-						APIs for Karma and the Goober Project are provided by third parties.*/}
-						{/* &mdash; <a href="/legal" className="text-blue-500 underline pointer-events-auto z-501">Terms</a> */}
-					</div>
-				</Suspense>
-				{/* <Suspense>
-					<VercelToolbar/>
-				</Suspense> */}
-			</body>
-		</html>
+		<body className={inter.className}>
+			{children}
+			<Toaster />
+			<SpeedInsights/>
+			<Suspense>
+				{/*<div className="absolute bottom-[10px] left-[10px] text-xs text-muted-foreground z-[9999]">
+					© OCbwoy3 2024-present &mdash; <a href="https://github.com/ocbwoy3/ocbwoy3.dev/" className="text-blue-500 underline pointer-events-auto z-501">Source</a><br/>
+					APIs for Karma and the Goober Project are provided by third parties.*/}
+					{/* &mdash; <a href="/legal" className="text-blue-500 underline pointer-events-auto z-501">Terms</a> */}
+				</div>
+			</Suspense>
+			{/* <Suspense>
+				<VercelToolbar/>
+			</Suspense> */}
+		</body>
 	);
 }
