@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Error from "./error";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { PageLoadHandler } from "@/components/site/PageLoadHandler";
 import Footer from "@/components/site/Footer";
 import { ThemeProvider } from "@/components/site/ThemeProvider";
@@ -40,7 +40,9 @@ export default function RootLayout({
 					<ToasterToast/>
 					<ToasterSonner/>
 					<main className="flex-grow">
-						{children}
+						<Suspense>
+							{children}
+						</Suspense>
 					</main>
 					<Footer/>
 				</ThemeProvider>
