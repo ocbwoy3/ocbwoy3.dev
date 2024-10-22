@@ -77,7 +77,7 @@ export default function Page() {
 		<>
 			<div className="h-16"/>
 			<p className="w-full font-mono font-bold text-sm text-center">{stats.lastUpdated}</p>
-			<p className="w-full font-mono font-bold text-3xl text-center">Replay '{stats.year.match(/..$/)}</p>
+			<p className="w-full font-mono font-bold text-3xl text-center">Replay &apos;{stats.year.match(/..$/)}</p>
 			<div className="h-4"/>
 			<p className="w-full font-mono font-bold text-muted-foreground text-3xl text-center">{stats.timeListened.hours} hours, {stats.timeListened.minutes} minutes</p>
 			<p className="w-full font-mono font-bold text-muted-foreground text-3xl text-center">{stats.uniqueArtists}+ unique artists</p>
