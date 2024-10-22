@@ -33,16 +33,14 @@ export default function RootLayout({
 }>) {
 
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen `}>
 				<PageLoadHandler/>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					<ToasterToast/>
 					<ToasterSonner/>
 					<main className="flex-grow">
-						<Suspense>
-							{children}
-						</Suspense>
+						{children}
 					</main>
 					<Footer/>
 				</ThemeProvider>
