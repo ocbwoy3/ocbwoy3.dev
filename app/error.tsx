@@ -19,11 +19,7 @@ export default function Error({
 }) {
 	const router = useRouter()
 
-	const [isWarned, setIsWarned] = useState<boolean>(false) 
-
 	useEffect(() => {
-		if (isWarned) return;
-		setIsWarned(true);
 		console.warn("[ocbwoy3.dev] PAGE RENDER ERROR");
 		console.warn(error);
 		router.push("/");

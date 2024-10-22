@@ -62,11 +62,15 @@ export default function Page() {
 				genres: genresTemp
 			},undefined,"\t"))
 		*/
-		fetch("https://corsproxy.io?https://cdn.ocbwoy3.dev/music.json").then(async(d)=>{
-			const j: FetchedData = await d.json();
-			setStats(j.stats);
-			setAlbums(j.albums);
-			setGenres(j.genres);
+		fetch("https://corsproxy.io?https://cdn.ocbwoy3.dev/music.json").then((d)=>{
+			d.json().then((j: FetchedData)=>{
+				setStats(j.stats);
+				setAlbums(j.albums);
+				setGenres(j.genres);
+			}).catch((a)=>{
+				console.error(a)
+				console.warn("CANNOT DECODE JSON REPLAY DATA")
+			})
 		}).catch((a)=>{
 			console.error(a)
 			console.warn("CANNOT GET REPLAY DATA")
