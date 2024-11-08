@@ -25,10 +25,6 @@ export default function Page() {
 
 	const wtf = () => { setBanInfo(null); };
 
-	let openUsernameInputModal = () => {
-		((window || global) as any).openUsernameInputModal();
-	}
-
 	useEffect(() => {
 		((window || global) as any).setBanInfo = (x: BanReturns | null) => { setBanInfo(x) }
 		(async()=>{

@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import Error from "./error";
-import { Suspense, useEffect } from "react";
 import { PageLoadHandler } from "@/components/site/PageLoadHandler";
 import Footer from "@/components/site/Footer";
 import { ThemeProvider } from "@/components/site/ThemeProvider";
 import { Toaster as ToasterToast } from "@/components/ui/toaster";
 import { Toaster as ToasterSonner } from "@/components/ui/sonner";
+import useDarkMode from "use-dark-mode";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -34,9 +32,9 @@ export default function RootLayout({
 
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen `}>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
 				<PageLoadHandler/>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+				<ThemeProvider attribute="class" enableSystem>
 					<ToasterToast/>
 					<ToasterSonner/>
 					<main className="flex-grow">
