@@ -20,7 +20,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-	title: "ocbwoy3.dev",
+	title: {
+		default: "Page",
+		template: "OCbwoy3's %s"
+	},
 	description: "The website",
 };
 

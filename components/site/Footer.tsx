@@ -46,6 +46,11 @@ export default function Footer() {
 					<FontAwesomeIcon icon={faGithub} className="w-6 h-6"/>
 				</Link>
 				<DarkModeToggle className="w-6 h-6"/>
+				<span className="pr-1 text-muted-foreground underline">
+					<Link href={"https://github.com/ocbwoy3/ocbwoy3.dev/tree/v2"}>
+						{"v2 @ latest"}
+					</Link>
+				</span>
 			</span>
 		</footer>
 	);
