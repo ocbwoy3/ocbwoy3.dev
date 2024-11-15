@@ -26,7 +26,7 @@ export default function Page() {
 					</div>					
 				</div>
 				<div className="w-full flex justify-center items-center px-4 py-8"> {/* FIX THIS CLASS */}
-					<Post did="did:plc:s7cesz7cr6ybltaryy4meb6y" id="3laxy3upo7c25"/>
+					{/* <Post did="did:plc:s7cesz7cr6ybltaryy4meb6y" id="3laxy3upo7c25"/> */}
 				</div>
 				<div className="text-red-500">{"The \"Be My Friend\" component is still work in progress!"}</div>
 				<div className="text-muted text-sm">{"Trying to make it look like from a TikTok Slideshow. You can contribute if you want to."}</div>
