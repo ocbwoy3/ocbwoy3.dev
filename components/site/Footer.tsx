@@ -47,8 +47,8 @@ export default function Footer() {
 				</Link>
 				<DarkModeToggle className="w-6 h-6"/>
 				<span className="pr-1 text-muted-foreground underline">
-					<Link href={"https://github.com/ocbwoy3/ocbwoy3.dev/tree/v2"}>
-						{"v2 @ latest"}
+					<Link href={"https://github.com/ocbwoy3/ocbwoy3.dev/"}>
+						{"Source"}
 					</Link>
 				</span>
 			</span>

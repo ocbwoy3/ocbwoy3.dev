@@ -26,7 +26,7 @@ type theGooberProject = {
 
 // The Goober Project
 export async function getTGPBan(userid: string): Promise<BanEntry | null> {
-	const rawdata = await fetch("https://corsproxy.io?https://thegoober.xyz/api/bans",{cache: "no-store"});
+	const rawdata = await fetch(`https://thegoober.xyz/bans/${userid}`,{cache: "no-store"});
 	const data: BanData<theGooberProject> = await rawdata.json();
 
 	if (data[userid.toString()]) {
@@ -135,10 +135,6 @@ export async function getBanInformation(userName: string): Promise<BanReturns | 
 	} catch { }
 	try {
 		let karma = await getKarmaBan(userid.toString()); if (karma) { banProviderData.push(karma) };
-	} catch { }
-	try {
-		// frick this
-		// let nova = await getNovaBan(userid.toString()); if (nova) { banProviderData.push(nova) };
 	} catch { }
 	try {
 		let tgp = await getTGPBan(userid.toString()); if (tgp) { banProviderData.push(tgp) };

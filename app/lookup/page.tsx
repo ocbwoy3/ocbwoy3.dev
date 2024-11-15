@@ -74,7 +74,7 @@ export default function Page() {
 								<>
 									<br/>
 									<Alert className="inline-flex">
-										<Avatar className="w-8 h-8"><img src={banInfo.profilePicture}/></Avatar>
+										<Avatar className="w-8 h-8"><img src={banInfo.profilePicture.length === 0 ? "/placeholder_pfp.webp" : banInfo.profilePicture}/></Avatar>
 										<div className="w-2"/>
 										<div>
 											<AlertTitle className="font-bold">{banInfo.displayName} <span className="text-muted-foreground font-normal">@{banInfo.username}</span></AlertTitle>
@@ -88,7 +88,7 @@ export default function Page() {
 									{
 										banInfo.bans.map(ban=>(
 											<Alert key={ban.banProvider+ban.banProviderIcon} className="inline-flex">
-												<Avatar className="w-8 h-8"><img src={ban.banProviderIcon}/></Avatar>
+												<Avatar className="w-8 h-8"><img src={ban.banProviderIcon.length === 0 ? "/placeholder_pfp.webp" : ban.banProviderIcon}/></Avatar>
 												<div className="w-2"/>
 												<div>
 													<AlertTitle className="font-bold">{ban.banProvider}</AlertTitle>
