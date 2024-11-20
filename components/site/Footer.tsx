@@ -8,9 +8,9 @@ import { Separator } from '../ui/separator';
 
 const Links: {name: string, url: string}[] = [
 	{ name: "Home", url: "/" },
-	{ name: "Bio", url: "/bio" },
-	{ name: "Projects", url: "/projects" },
-	{ name: "Tools", url: "/tools" }
+	{ name: "GBan Lookup", url: "/lookup" },
+	{ name: "Midnight Skeeting Madness", url: "/MidnightSkeetingMadness" },
+	{ name: "Rules", url: "/server_rules" }
 ]
 
 export default function Footer() {
@@ -38,9 +38,6 @@ export default function Footer() {
 				<div className="w-2"/>
 				<Link href={"https://bsky.app/profile/did:plc:s7cesz7cr6ybltaryy4meb6y"} className="w-6 h-6 hover:text-blue-700">
 					<FontAwesomeIcon icon={faBluesky} className="w-6 h-6"/>
-				</Link>
-				<Link href={"https://twitter.com/@ocbwoy3"} className="w-6 h-6 hover:text-blue-700">
-					<FontAwesomeIcon icon={faTwitter} className="w-6 h-6"/>
 				</Link>
 				<Link href={"https://github.com/ocbwoy3"} className="w-6 h-6 hover:text-blue-700">
 					<FontAwesomeIcon icon={faGithub} className="w-6 h-6"/>
