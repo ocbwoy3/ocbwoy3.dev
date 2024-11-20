@@ -7,6 +7,9 @@ import { ThemeProvider } from "@/components/site/ThemeProvider";
 import { Toaster as ToasterToast } from "@/components/ui/toaster";
 import { Toaster as ToasterSonner } from "@/components/ui/sonner";
 import useDarkMode from "use-dark-mode";
+import { Suspense } from "react";
+import { PostSkeleton } from "bsky-react-post";
+import { BlueskyPost } from "@/components/pages/BlueskyPost";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",

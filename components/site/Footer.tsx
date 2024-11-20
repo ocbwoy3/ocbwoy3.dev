@@ -5,8 +5,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { DarkModeToggle } from './DarkModeToggle';
 import { Separator } from '../ui/separator';
-import { Button } from '../ui/button';
-import { toast } from 'sonner';
 
 const Links: {name: string, url: string}[] = [
 	{ name: "Home", url: "/" },
@@ -16,6 +14,8 @@ const Links: {name: string, url: string}[] = [
 ]
 
 export default function Footer() {
+
+	const isDeveloper = process.env.NODE_ENV !== "production";
 
 	return (
 		<footer className="py-4 px-2 w-full">
@@ -46,11 +46,13 @@ export default function Footer() {
 					<FontAwesomeIcon icon={faGithub} className="w-6 h-6"/>
 				</Link>
 				<DarkModeToggle className="w-6 h-6"/>
-				<span className="pr-1 text-muted-foreground underline">
-					<Link href={"https://github.com/ocbwoy3/ocbwoy3.dev/"}>
-						{"Source"}
-					</Link>
-				</span>
+				{ isDeveloper ? (
+					<span className="pr-1 text-muted-foreground">
+						<Link href={"https://github.com/ocbwoy3/ocbwoy3.dev/"}>
+							{"env: "+process.env.NODE_ENV}
+						</Link>
+					</span>
+				) : (<></>)}
 			</span>
 		</footer>
 	);
