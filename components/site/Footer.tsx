@@ -9,8 +9,8 @@ import { Separator } from '../ui/separator';
 const Links: {name: string, url: string}[] = [
 	{ name: "Home", url: "/" },
 	{ name: "GBan Lookup", url: "/lookup" },
-	{ name: "Midnight Skeeting Madness", url: "/MidnightSkeetingMadness" },
-	{ name: "Rules", url: "/server_rules" }
+	{ name: "Skeeting Madness", url: "/MidnightSkeetingMadness" },
+	{ name: "Replay", url: "/replay" }
 ]
 
 export default function Footer() {
