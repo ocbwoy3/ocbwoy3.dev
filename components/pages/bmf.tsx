@@ -21,8 +21,8 @@ function Draggable({ children, uq, index, n, ...props }: PropsWithChildren & {uq
 			if (!p) return;
 			const b: DOMRect = p?.getBoundingClientRect();
 			let bruh = {
-				x: d.pageX-b.left,
-				y: d.pageY-b.top-(64*index)
+				x: d.clientX-b.left,
+				y: d.clientY-b.top-(64*index)
 			};
 			((window || global) as any).ocbwoy3dev_bmf_view[n] = bruh;
 			setPosition(bruh)
@@ -135,10 +135,10 @@ export function BMFView() {
 
 	return (
 		<div suppressHydrationWarning>
-			<div className="text-xl font-bold text-center underline decoration-dotted" onClick={()=>{r.push("https://www.allacronyms.com/BMF/Be_My_Friend")/* could be /dictionary/[slug] */}}>{"bmf?"}</div>
+			<div className="text-xl font-bold text-center underline decoration-dotted decoration-foreground" onClick={()=>{r.push("https://www.allacronyms.com/BMF/Be_My_Friend")/* could be /dictionary/[slug] */}}>{"bmf?"}</div>
 			<div className="h-2"/>
 			{/* css is too difficult i wanna make my bmf component look like the ones in tiktok slideshows */}
-			<div className={"w-96 h-96 z-50 grid place-items-start border border-muted"}>
+			<div className={"w-96 h-96 z-50 grid place-items-start border border-muted rounded-md"+(isDeveloper ? "" : " overflow-hidden")}>
 				{ isLoaded ? (
 					<div key="bmfviewreal" id={`bmf_view_${uq}`} className="">
 						{ isDeveloper ? BMFElementsDev.map(a=>a) : BMFElements.map(a=>a)}
@@ -164,7 +164,7 @@ export function BMFView() {
 				</>
 			) : (<>
 				<div className="h-1"/>
-				<span onClick={()=>setIsDeveloper(true)} className="text-sm text-muted-foreground">{"Made 100% entirely in React + Tailwind 😎"}</span>
+				<span onClick={()=>setIsDeveloper(true)} className="text-sm text-muted-foreground">{"This is a React component btw 😎"}</span>
 			</>)}
 		</div>
 	);
