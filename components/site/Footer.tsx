@@ -8,9 +8,7 @@ import { Separator } from '../ui/separator';
 
 const Links: {name: string, url: string}[] = [
 	{ name: "Home", url: "/" },
-	{ name: "GBan Lookup", url: "/lookup" },
-	{ name: "Skeeting Madness", url: "/MidnightSkeetingMadness" },
-	{ name: "Replay", url: "/replay" }
+	{ name: "Lookup", url: "/lookup" }
 ]
 
 export default function Footer() {
@@ -28,7 +26,7 @@ export default function Footer() {
 							<Link href={a.url} className="text-muted-foreground hover:text-blue-700">
 								{a.name}
 							</Link>
-							{ i !== Links.length-1 ? (<Separator orientation="vertical"/> ) : ""}
+							{ i !== Links.length-1 ? (<Separator orientation="vertical"/>) : ""}
 						</span >
 					))
 				}
