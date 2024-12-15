@@ -1,63 +1,37 @@
-import { BMFView } from "@/components/pages/bmf";
-import { Title } from "@/components/site/SiteNameHeader";
-import { Button } from "@/components/ui/button";
-import { Metadata } from "next";
-import Link from "next/link";
 import { Suspense } from "react";
+import { Metadata } from "next";
+import Starfield from "@/components/pages/Starfield";
+import { Title } from "@/components/pages/Title";
+import { ScrollBMF } from "@/components/pages/ScrollBMF";
+import { BMFView } from "@/components/pages/bmf";
+import BouncingImage from "@/components/pages/DVDLogoBounce";
 
 export const metadata: Metadata = {
-	title: "Welcome to ocbwoy3.dev",
-	description: "OCbwoy3 is a gay furry, alright? He plays Roblox aswell.",
+	title: "OCbwoy3",
+	description:
+		"OCbwoy3 starts here. On a device or on the web, you can discover more about me. Join our Discord to learn more!",
 };
-
-/*
-<div className="w-full flex justify-center items-center px-4 py-8">
-	<Suspense fallback={<PostSkeleton/>}>
-		<BlueskyPost did="did:plc:s7cesz7cr6ybltaryy4meb6y" id="3laxy3upo7c25"/>
-	</Suspense>
-</div>
-*/ 
 
 export default function Page() {
 	return (
-		<>
-			<div className="h-8"/>
-			<Title/>
-			<div className="w-full grid place-items-center">
-				<div className="pt-16 text-center max-sm max-w-96">
-					<div className="font-extrabold text-xl">
-						{"Who the FUCK is OCbwoy3?"}
-					</div>
-					<div className="text-muted-foreground/50 text-sm">
-						{"oh yeah, im "}
-						<Suspense fallback="??">
-							{Math.floor(new Date(Date.now() - new Date(2009, 6, 16).getTime()).getFullYear()-1970)}
-						</Suspense>
-						{" btw, and i play roblox too, i'm also a gay furry too :3, i sometimes make stuff, sometimes things related to atproto, bluesky, etc. currently i'm working on rem blue - the bluesky roblox remote admin. i ditched discord unlike other remotes because i want it to be open"}
-						<div className="h-1"/>
-						<div className="space-x-1 text-foreground">
-							<Link href="https://discord.gg/cQDvPtv3Dt"><Button variant="outline">Discord</Button></Link>
-							<Link href="https://darktru.win"><Button variant="outline">Other Site</Button></Link>
-						</div>
-					</div>
-				</div>
-				<div className="pt-16 text-center max-sm max-w-96">
-					<div className="font-extrabold text-xl">
-						{"Mandatory BMF"}
-					</div>
-					<div className="text-muted-foreground/50 text-sm">
-						{"look around, this is the \"be my friend\" component, inspired from countless tiktok slideshows, i made this using next.js + react + tailwind :3"}
-					</div>
-				</div>
-				<BMFView/>
-				<div className="w-96 text-left text-muted-foreground/50 text-xs">
-					<strong>{"Be My Friend"}</strong>
-					{" is a type of a TikTok slideshow containing things they like, what they are, their hobbies, etc. to find "}
-					<Link href="https://fluentslang.com/what-does-moots-mean-in-slang/" className="underline decoration-dotted">moots</Link>.
-				</div>
-				
+		<>	
+			<span className="fixed w-screen h-screen top-0 left-2 z-40">
+				{"work in progress, will update later"}
+			</span>
+			<span className="fixed inset-0 w-screen h-screen flex items-center justify-center z-20 bg-black">
+				<Starfield
+					starCount={1000}
+					starColor={[255, 255, 255]}
+					speedFactor={0.4}
+					backgroundColor="black"
+				/>
+			</span>
+			<div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-30">
+				<Title />
+			</div>
+			<div className="fixed text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-32 flex justify-center items-center z-30 transition-opacity duration-300 ease-in-out">
+				<BMFView />
 			</div>
 		</>
 	);
 }
-

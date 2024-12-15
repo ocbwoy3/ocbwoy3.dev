@@ -6,10 +6,6 @@ import Footer from "@/components/site/Footer";
 import { ThemeProvider } from "@/components/site/ThemeProvider";
 import { Toaster as ToasterToast } from "@/components/ui/toaster";
 import { Toaster as ToasterSonner } from "@/components/ui/sonner";
-import useDarkMode from "use-dark-mode";
-import { Suspense } from "react";
-import { PostSkeleton } from "bsky-react-post";
-import { BlueskyPost } from "@/components/pages/BlueskyPost";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -21,11 +17,16 @@ const geistMono = localFont({
 	variable: "--font-geist-mono",
 	weight: "100 900",
 });
+const monaspaceNeon = localFont({
+	src: "./fonts/MonaspaceNeon-Regular.woff",
+	variable: "--font-monaspace-neon",
+	weight: "100 900",
+});
 
 export const metadata: Metadata = {
 	title: {
 		default: "Page",
-		template: "OCbwoy3's %s"
+		template: "%s - OCbwoy3"
 	},
 	description: "The website",
 };
@@ -38,7 +39,7 @@ export default function RootLayout({
 
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+			<body className={`${geistSans.variable} ${geistMono.variable} ${monaspaceNeon.variable} antialiased flex flex-col min-h-screen`}>
 				<PageLoadHandler/>
 				<ThemeProvider attribute="class" enableSystem>
 					<ToasterToast/>

@@ -4,6 +4,7 @@ import { PropsWithChildren, ReactElement, ReactHTMLElement, ReactNode, useEffect
 import { useRouter } from "next/navigation";
 import { toast } from 'sonner';
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 /* the static-ocbwoy3dev.darktru.win method */
 const assets = "https://static-ocbwoy3dev.darktru.win/component/bmf/";
@@ -135,7 +136,7 @@ export function BMFView() {
 
 	return (
 		<div suppressHydrationWarning>
-			<div className="text-xl font-bold text-center underline decoration-dotted decoration-foreground" onClick={()=>{r.push("https://www.allacronyms.com/BMF/Be_My_Friend")/* could be /dictionary/[slug] */}}>{"bmf?"}</div>
+			<Link className="text-xl font-bold text-center underline decoration-dotted decoration-foreground" href="https://en.wiktionary.org/wiki/moot#Etymology_5">{"bmf?"}</Link>
 			<div className="h-2"/>
 			{/* css is too difficult i wanna make my bmf component look like the ones in tiktok slideshows */}
 			<div className={"w-96 h-96 z-50 grid place-items-start border border-muted rounded-md"+(isDeveloper ? "" : " overflow-hidden")}>

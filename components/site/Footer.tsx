@@ -7,8 +7,7 @@ import { DarkModeToggle } from './DarkModeToggle';
 import { Separator } from '../ui/separator';
 
 const Links: {name: string, url: string}[] = [
-	{ name: "Home", url: "/" },
-	{ name: "Lookup", url: "/lookup" }
+	{ name: "Home", url: "/" }	
 ]
 
 export default function Footer() {
