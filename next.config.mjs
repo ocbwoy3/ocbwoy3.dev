@@ -17,7 +17,7 @@ const nextConfig = {
 		return getGitCommitHash();
 	},
 	experimental: {
-		mdxRs: true,
+		// mdxRs: true,
 		turbo: true
 	},
 	// transpilePackages: ["bsky-react-post"],
