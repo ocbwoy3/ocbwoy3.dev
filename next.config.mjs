@@ -1,7 +1,9 @@
 import { execSync } from "child_process";
-import createMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
 import v from "./package.json" assert { type: "json" };
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import rehypePrettyCode from "rehype-pretty-code";
+import withMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,12 +17,28 @@ const nextConfig = {
 		return getGitCommitHash();
 	},
 	experimental: {
-		mdxRs: {
-			mdxType: "gfm",
-		},
+		mdxRs: true,
+		turbo: true
 	},
 	// transpilePackages: ["bsky-react-post"],
 	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+	// Configure MDX to use remark-gfm
+	webpack: (config, { isServer }) => {
+		config.module.rules.push({
+			test: /\.mdx?$/,
+			use: [
+				{
+					loader: "@mdx-js/loader",
+					options: {
+						remarkPlugins: [remarkGfm],
+						rehypePlugins: [rehypeHighlight, rehypePrettyCode],
+					},
+				},
+			],
+		});
+
+		return config;
+	},
 };
 
 function getGitBranch() {
@@ -45,12 +63,11 @@ function getGitCommitHash() {
 	}
 }
 
-const withMDX = createMDX({
+const mdxConfig = withMDX({
+	extension: /\.mdx?$/,
 	options: {
-		remarkPlugins: [["remark-gfm", { singleTilde: false }]],
-		rehypePlugins: [],
+		remarkPlugins: [['remark-gfm']],
 	},
-	siteURL: "http://ocbwoy3.dev",
 });
 
-export default withMDX(nextConfig);
+export default mdxConfig(nextConfig);
