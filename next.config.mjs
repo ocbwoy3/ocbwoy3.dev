@@ -39,6 +39,32 @@ const nextConfig = {
 
 		return config;
 	},
+	async redirects() {
+		return [
+			{
+				source: '/discord',
+				destination: 'https://discord.gg/Nvpzc3dDSz',
+				permanent: false
+			},
+			{
+				source: '/appeal',
+				destination: 'https://docs.ocbwoy3.dev/docs/112/appeal',
+				permanent: false
+			},
+			
+			{
+				source: '/bsky',
+				destination: 'https://bsky.app/profile/did:plc:s7cesz7cr6ybltaryy4meb6y',
+				permanent: false
+			},
+			{
+				source: '/darktru',
+				destination: 'https://darktru.win',
+				permanent: false
+			}
+			
+		]
+	}
 };
 
 function getGitBranch() {
