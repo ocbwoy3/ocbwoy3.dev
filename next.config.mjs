@@ -1,9 +1,11 @@
 import { execSync } from "child_process";
-import v from "./package.json" assert { type: "json" };
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import rehypePrettyCode from "rehype-pretty-code";
 import withMDX from "@next/mdx";
+import { readFileSync } from "fs";
+
+const v = JSON.parse(readFileSync("./package.json"))
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

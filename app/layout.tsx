@@ -39,7 +39,7 @@ export default function RootLayout({
 
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable} ${monaspaceNeon.variable} antialiased flex flex-col min-h-screen`}>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
 				<PageLoadHandler/>
 				<ThemeProvider attribute="class" enableSystem>
 					<ToasterToast/>
