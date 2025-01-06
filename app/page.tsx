@@ -30,7 +30,11 @@ export default function Page() {
 		<>
 			<span className="absolute x-3 y-3 z-[70] font-black space-x-1 pt-2 pl-4">
 				{links.map((link, i) => (
-					<Link key={i} href={link[2]}>
+					<Link
+						key={i}
+						href={link[2]}
+						className={`text-${link[1]} border-${link[1]}`}
+					>
 						<Badge
 							variant="outline"
 							key={i}
@@ -54,10 +58,7 @@ export default function Page() {
 				<Title />
 			</div>
 			<div className="fixed bottom-2 w-screen content-center flex items-center justify-center z-30">
-				<UserBlockedYou
-					name="ocbwoy3.dev"
-					sub="follow on bluesky"
-				/>
+				<UserBlockedYou name="ocbwoy3.dev" sub="follow on bluesky" />
 			</div>
 			<div className="fixed bottom-16 w-screen content-center flex items-center justify-center z-30">
 				{"new - this thing right here"}
