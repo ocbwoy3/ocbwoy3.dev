@@ -7,6 +7,8 @@ import { BMFView } from "@/components/pages/bmf";
 import { Link } from "bsky-react-post";
 import { Badge } from "@/components/ui/badge";
 import { UserBlockedYou } from "@/components/lol/UserHasBlockedYou";
+import { Status } from "@/components/pages/Status";
+import { Stat } from "@/components/pages/StatusJSON";
 
 export const metadata: Metadata = {
 	title: "OCbwoy3",
@@ -57,14 +59,12 @@ export default function Page() {
 			<div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-30">
 				<Title />
 			</div>
-			<div className="fixed bottom-2 w-screen content-center flex items-center justify-center z-30">
-				<UserBlockedYou name="ocbwoy3.dev" sub="follow on bluesky" />
-			</div>
-			<div className="fixed bottom-16 w-screen content-center flex items-center justify-center z-30">
-				{"new - this thing right here"}
-			</div>
-			<div className="fixed bottom-2 right-4 z-30 text-sm text-right">
-				{"ultimate website i guess"}
+			<div className="fixed bottom-16 w-screen content-center flex items-center justify-center z-30 select-none">
+				<div className="text-center">
+					<Status/><br/>
+					<div className="font-mono text-sm text-blue">live from api.ocbwoy3.dev</div><br/>
+					<div className="font-mono text-xs text-blue"><Stat jsonEntry="numBans" defaultValue={0}/> banned users</div>
+				</div>
 			</div>
 			<div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-30">
 				<BMFTHing />
