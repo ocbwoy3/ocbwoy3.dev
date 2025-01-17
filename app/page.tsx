@@ -61,9 +61,16 @@ export default function Page() {
 			</div>
 			<div className="fixed bottom-16 w-screen content-center flex items-center justify-center z-30 select-none">
 				<div className="text-center">
-					<Status/><br/>
-					<div className="font-mono text-sm text-blue">live from api.ocbwoy3.dev</div><br/>
-					<div className="font-mono text-xs text-blue"><Stat jsonEntry="numBans" defaultValue={0}/> banned users</div>
+					<Status />
+					<br />
+					<div className="font-mono text-sm text-blue">
+						live from api.ocbwoy3.dev
+					</div>
+					<br />
+					<div className="font-mono text-xs text-blue">
+						<Stat jsonEntry="numBans" defaultValue={0} /> banned
+						users
+					</div>
 				</div>
 			</div>
 			<div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-30">

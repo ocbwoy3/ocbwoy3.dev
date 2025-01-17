@@ -5,7 +5,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import withMDX from "@next/mdx";
 import { readFileSync } from "fs";
 
-const v = JSON.parse(readFileSync("./package.json"))
+const v = JSON.parse(readFileSync("./package.json"));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -18,83 +18,22 @@ const nextConfig = {
 	generateBuildId: async () => {
 		return getGitCommitHash();
 	},
-	experimental: {
-		// mdxRs: true,
-		turbo: true
-	},
-	// transpilePackages: ["bsky-react-post"],
-	pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-	// Configure MDX to use remark-gfm
-	webpack: (config, { isServer }) => {
-		config.module.rules.push({
-			test: /\.mdx?$/,
-			use: [
-				{
-					loader: "@mdx-js/loader",
-					options: {
-						remarkPlugins: [remarkGfm],
-						rehypePlugins: [rehypeHighlight, rehypePrettyCode],
-					},
-				},
-			],
-		});
-
-		return config;
-	},
-	async redirects() {
-		return [
-			{
-				source: '/discord',
-				destination: 'https://discord.gg/Nvpzc3dDSz',
-				permanent: false
-			},
-			{
-				source: '/appeal',
-				destination: 'https://docs.ocbwoy3.dev/docs/112/appeal',
-				permanent: false
-			},
-			
-			{
-				source: '/bsky',
-				destination: 'https://bsky.app/profile/did:plc:s7cesz7cr6ybltaryy4meb6y',
-				permanent: false
-			},
-			{
-				source: '/darktru',
-				destination: 'https://darktru.win',
-				permanent: false
-			}
-			
-		]
-	}
+	pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
 };
 
 function getGitBranch() {
-	try {
-		const branch = execSync("git rev-parse --abbrev-ref HEAD")
-			.toString()
-			.trim();
-		return branch;
-	} catch (error) {
-		console.error("Failed to get Git branch:", error);
-		return "unknown";
-	}
+	return execSync("git rev-parse --abbrev-ref HEAD").toString().trim();
 }
 
 function getGitCommitHash() {
-	try {
-		const commitHash = execSync("git rev-parse HEAD").toString().trim();
-		return commitHash;
-	} catch (error) {
-		console.error("Failed to get Git commit hash:", error);
-		return "unknown";
-	}
+	return execSync("git rev-parse HEAD").toString().trim();
 }
 
 const mdxConfig = withMDX({
 	extension: /\.mdx?$/,
 	options: {
-		remarkPlugins: [['remark-gfm']],
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: [rehypeHighlight, rehypePrettyCode],
 	},
 });
 

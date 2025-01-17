@@ -1,62 +1,30 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
-import mocha from "react-syntax-highlighter-catppuccin/mocha";
-import { ReactNode } from "react";
+import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 
-export function useMDXComponents(components: { children: ReactNode }) {
+export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		...components,
-		a: ({ children, href }: { children: ReactNode, href: string }) => (
-			<Link href={href} className="underline">
+		a: ({ href, children }) => (
+			<Link
+				href={href as string}
+				className="text-blue-500 hover:underline"
+			>
 				{children}
 			</Link>
 		),
-		checkbox: () => (
-			"check box"
+		h1: ({ children }) => (
+			<h1 className="text-4xl font-bold mb-4">{children}</h1>
 		),
-		ul: ({ children }: { children: ReactNode }) => (
-			<ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
-				{children}
-			</ul>
+		h2: ({ children }) => (
+			<h2 className="text-3xl font-semibold mb-3">{children}</h2>
 		),
-		ol: ({ children }: { children: ReactNode }) => (
-			<ol style={{ listStyleType: "decimal", paddingLeft: "20px" }}>
-				{children}
-			</ol>
+		p: ({ children }) => <p className="mb-4">{children}</p>,
+		ul: ({ children }) => (
+			<ul className="list-disc pl-5 mb-4">{children}</ul>
 		),
-		li: ({ children }: { children: ReactNode }) => (
-			<li style={{ marginBottom: "8px" }}>{children}</li>
+		ol: ({ children }) => (
+			<ol className="list-decimal pl-5 mb-4">{children}</ol>
 		),
-		input: ({ type, ...props }: { type: "checkbox" }) => {
-			if (type === "checkbox") {
-				return (
-					<input
-						type="checkbox"
-						style={{ marginRight: "8px" }}
-						{...props}
-					/>
-				);
-			}
-			return <input type={type} {...props} />;
-		},
-		code: ({
-			className,
-			children,
-		}: {
-			className: string;
-			children: ReactNode;
-		}) => {
-			const language = className?.replace("language-", "") || "";
-			return (
-				<span className="my-4 rounded-lg overflow-hidden">
-					{/* <SyntaxHighlighter language={language} style={mocha}> */}
-						{String(children).trim()}
-					{/* </SyntaxHighlighter> */}
-				</span>
-			);
-		},
-		blockquote: ({ children }: { children: ReactNode }) => (
-			<span className="pl-4 pr-4 bg-mantle text-text">{children}</span>
-		),
+		li: ({ children }) => <li className="mb-1">{children}</li>
 	};
 }
