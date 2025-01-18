@@ -1,10 +1,6 @@
 import { MDXProvider } from "@/hooks/use-mdx";
 
-export default async function Page({
-	params,
-}: {
-	params: Promise<{ slug: string }>;
-}) {
+export default async function Page({ params }) {
 	const slug = (await params).slug;
 	const { default: Post } = await import(`@/docs/${slug}.mdx`);
 	return (
@@ -16,7 +12,7 @@ export default async function Page({
 	);
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }) {
 	const { slug } = params;
 	const { metadata } = await import(`@/docs/${slug}.mdx`);
 	return {

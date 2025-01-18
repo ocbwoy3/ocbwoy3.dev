@@ -322,3 +322,16 @@ body {
 		--post-link-font-color: rgb(147 197 253);
 	}
 }
+
+/*
+.shiki {
+	counter-reset: step;
+	counter-increment: step 0;
+	.line {
+		&::before {
+			counter-increment: step;
+			@apply mr-6 inline-block w-4 border-transparent text-right text-blue content-[counter(step)];
+		}
+	}
+}
+*/
