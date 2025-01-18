@@ -1,3 +1,5 @@
+import { MDXProvider } from "@/hooks/use-mdx";
+
 export default async function Page({
 	params,
 }: {
@@ -7,11 +9,23 @@ export default async function Page({
 	const { default: Post } = await import(`@/docs/${slug}.mdx`);
 	return (
 		<div className="overflow-x-hidden px-4 pt-8 font-sans">
-			<Post />
+			<MDXProvider>
+				<Post />
+			</MDXProvider>
 		</div>
 	);
 }
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+	const { slug } = params;
+	const { metadata } = await import(`@/docs/${slug}.mdx`);
+	return {
+		title: metadata.title || "[NO METADATA]",
+		description: metadata.description || "@ocbwoy3.dev plz fix!!",
+	};
+}
+
 export function generateStaticParams() {
-	return [{ slug: "index" }, { slug: "appeal" }];
+	return [{ slug: "intro" }, { slug: "appeal" }];
 }
 export const dynamicParams = false;

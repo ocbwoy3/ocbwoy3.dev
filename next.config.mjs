@@ -18,6 +18,31 @@ const nextConfig = {
 	generateBuildId: async () => {
 		return getGitCommitHash();
 	},
+	async redirects() {
+		return [
+			{
+				source: "/%F0%9F%93%B8/:slug",
+				destination: "https://i.darktru.win/:slug",
+				permanent: false,
+			},
+			{
+				source: "/docs",
+				destination: "/docs/intro",
+				permanent: false,
+			},
+			{
+				source: "/appeal",
+				destination: "/docs/appeal",
+				permanent: false,
+			},
+			{
+				source: "/xrpc/com.atproto.sync.getBlob",
+				destination:
+					"https://i.darktru.win/xrpc/com.atproto.sync.getBlob",
+				permanent: false,
+			},
+		];
+	},
 	pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
 };
 
