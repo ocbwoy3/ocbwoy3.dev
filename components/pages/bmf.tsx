@@ -236,9 +236,9 @@ export function BMFView() {
 						id={`bmf_view_${uq}`}
 						className="top-2 left-2 font-sans text-left pl-2 pt-2"
 					>
-						<span className="font-bold text-red text-sm">
-							{"Internet disconnected, couldn't show images."}
-						</span>
+						<a href="https://bsky.app/profile/did:plc:s7cesz7cr6ybltaryy4meb6y/post/3lilpfhrfo22b" className="font-bold text-red text-sm">
+							{"no more r2 blame cloudflare plz 💔"}
+						</a>
 						<br />
 						<span className="font-bold text-green text-sm">
 							{"I fw:"}
