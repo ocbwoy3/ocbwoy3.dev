@@ -18,6 +18,7 @@ const nextConfig = {
 	generateBuildId: async () => {
 		return getGitCommitHash();
 	},
+	experimental: {},
 	async redirects() {
 		return [
 			{

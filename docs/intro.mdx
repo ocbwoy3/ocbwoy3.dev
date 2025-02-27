@@ -7,44 +7,29 @@ export const metadata = {
 	description: "All the information you'll ever need!"
 };
 
-Well.. Here we go...
+<Title />
 
-<Title/>
+# HEADING EXAMPLES
 
-# This is MDX
-## MDX
-### Next.JS!
+# h1
+## h2
+### h3
 
-We have banned <Stat jsonEntry="numBans" defaultValue="0" /> users with 112
+**Custom MDX Components with React Hooks**
+
+`<Stat jsonEntry="numBans" defaultValue="0" />` ➡️ <Stat jsonEntry="numBans" defaultValue="0" />
 
 <Status/>
 
-This data is fetched with a React hook.
+**MDX Code components**
 
-> This is a blockquote
+This is a single-tick `code` component. 
+
+This (three-tick) codeblock is rendered with Shiki:
 
 ```luau
 
 -- Luau
 
 local owner: Player = game:GetService("Players"):FindFirstChild("OCboy3")
-```
-
-```mdx-ts
-
-// TypeScript
-
-export const owner: Player = await getPlayer();
-```
-
-```mdx-cpp
-
-// C++
-
-#include <iostream>
-
-int main() {
-    std::cout << "Hello World!";
-    return 0;
-}
 ```

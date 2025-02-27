@@ -46,7 +46,7 @@ const fetchStatus = async () => {
     } catch (error) {
         currentStatus = null;
         subscribers.forEach((callback) => callback(null));
-        console.error("Failed to fetch status:", error);
+        // console.error("Failed to fetch status:", error);
     }
 };
 

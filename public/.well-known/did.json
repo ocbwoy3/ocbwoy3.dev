@@ -1,0 +1,24 @@
+{
+	"@context": [
+		"https://www.w3.org/ns/did/v1",
+		"https://w3id.org/security/multikey/v1",
+		"https://w3id.org/security/suites/secp256k1-2019/v1"
+	],
+	"id": "did:web:vdp-72-v72ds-73912-cus001.vm01.host.ocbwoy3.dev",
+	"alsoKnownAs": ["at://vdp-72-v72ds-73912-cus001.vm01.host.ocbwoy3.dev"],
+	"verificationMethod": [
+		{
+			"id": "did:web:vdp-72-v72ds-73912-cus001.vm01.host.ocbwoy3.dev#atproto",
+			"type": "Multikey",
+			"controller": "did:web:vdp-72-v72ds-73912-cus001.vm01.host.ocbwoy3.dev",
+			"publicKeyMultibase": "zDnaenzTzjtFb7rUWmnK1QRjVrDcMExGN4vKomnzsuRp4FRYH"
+		}
+	],
+	"service": [
+		{
+			"id": "#atproto_pds",
+			"type": "AtprotoPersonalDataServer",
+			"serviceEndpoint": "https://pds.darktru.win"
+		}
+	]
+}

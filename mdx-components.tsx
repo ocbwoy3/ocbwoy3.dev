@@ -37,8 +37,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			</div>
 		),
 		code: ({ children, className }) => {
-			const lang = (className || "language-luau")!.match(/language\-(.+)\s?/)![1].replace(/mdx\-/,"")
-			return <Codeblock code={`${children}`} lang={lang as BundledLanguage} />
+			if (className?.includes("hljs")) {
+				const lang = (className || "language-luau")!.match(/language\-(.+)\s?/)![1].replace(/mdx\-/,"")
+				return <Codeblock code={`${children}`} lang={lang as BundledLanguage} />;
+			}
+			return <span className="font-mono bg-mantle p-1 rounded-sm">
+				<span>{children}</span>
+			</span>
 		}
 	};
 }

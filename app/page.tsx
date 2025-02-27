@@ -68,7 +68,7 @@ export default function Page() {
 					</div>
 					<br />
 					<div className="font-mono text-xs text-blue">
-						<Stat jsonEntry="numBans" defaultValue={0} /> banned
+						<Stat jsonEntry="numBans" defaultValue={<><span className="font-bold">an unknown amount</span> of</>} /> banned
 						users
 					</div>
 				</div>

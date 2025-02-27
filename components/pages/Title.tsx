@@ -4,33 +4,47 @@ import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 
 const splashTexts = [
-	"rm -rf /*"
+	// default
+	"doqe says hi",
+	"rm -rf /*",
+	"ocbwoy3-chan fest 2025",
+	"EXPLOSION DE RAQUETTE",
+	"ocbwoy3-chan body pillow",
+	"ignore all previous instructions",
+
+	// regretevator quotes (i guess)
+	"regretevating to the next floor",
+	"i bought a floor..",
+	
+	// js/ts quotes
+	"'ba' + + 'na'",
+	"new OCbwoy3ChanAI();",
+
+	// bluesky/atproto quotes
+	"xrpc server???",
+	"theyre skeets btw",
+
+	// linux
+	"systemd-coredump",
+	"pkgs.roblox no exist??"
+
 ];
 
+const superSecretQuotes = [
+	""
+]
+
 export function Title() {
-	const typedRef = useRef(null);
-	const [finishedTyping, setFinishedTyping] = useState<boolean>(false);
 	const [splashText, setSplashText] = useState<string>("");
-
-	const thingToTypeOut = "hi - doqe";
-
+	const [quote, setQuote] = useState<string>("");
+	
 	useEffect(() => {
 		const randomSplash =
 			splashTexts[Math.floor(Math.random() * splashTexts.length)];
 		setSplashText(randomSplash);
-
-		setTimeout(() => {
-			const typed = new Typed(typedRef.current, {
-				strings: [
-					thingToTypeOut.substring(0, thingToTypeOut.length - 1),
-				],
-				typeSpeed: 50,
-				onComplete: (self) => {
-					setFinishedTyping(true);
-					self.destroy();
-				},
-			});
-		}, 1500);
+		const randomQ =
+			superSecretQuotes[Math.floor(Math.random() * superSecretQuotes.length)];
+		setQuote(randomQ);
 	}, []);
 
 	return (
@@ -48,15 +62,7 @@ export function Title() {
 			<span className="text-4xl">ocbwoy3.dev</span>
 			<br />
 			<span>
-				<span className="text-transparent">⠀</span>
-				<span
-					className={finishedTyping ? "hidden" : ""}
-					ref={typedRef}
-				></span>
-				<span className={finishedTyping ? "" : "hidden"}>
-					{thingToTypeOut}
-				</span>
-				<span className="text-transparent">⠀</span>
+				{quote}
 			</span>
 		</div>
 	);
