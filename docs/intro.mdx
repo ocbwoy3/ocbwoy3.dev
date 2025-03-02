@@ -10,23 +10,16 @@ export const metadata = {
 
 <Title />
 
-# HEADING EXAMPLES
+# MDX in Next.js
 
-# h1
-## h2
-### h3
-
-**Custom MDX Components with React Hooks**
+### Custom components with React Hooks
 
 `<Stat jsonEntry="numBans" defaultValue="0" />` ➡️ <Stat jsonEntry="numBans" defaultValue="0" />
 
+`<Status/>` ➡️ ...
 <Status/>
 
-**MDX Code components**
-
-This is a single-tick `code` component. 
-
-These (three-tick) codeblock is rendered with Shiki:
+### Codeblocks rendered with Shiki
 
 ```luau
 
@@ -41,5 +34,7 @@ local owner: Player = game:GetService("Players"):FindFirstChild("OCboy3")
 
 const x = 1;
 ```
+
+### Standalone React components
 
 <BMFView/>

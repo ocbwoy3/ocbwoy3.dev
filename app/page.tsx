@@ -61,7 +61,7 @@ export default function Page() {
 			</div>
 			<div className="fixed bottom-16 w-screen content-center flex items-center justify-center z-30 select-none">
 				<div className="text-center">
-					<Status disallowNullApps={true} />
+					{/* <Status disallowNullApps={true} /> */}
 					<br />
 					<br/>
 					<span className="font-sans">
