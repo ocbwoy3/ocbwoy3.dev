@@ -7,7 +7,11 @@ import { DarkModeToggle } from './DarkModeToggle';
 import { Separator } from '../ui/separator';
 
 const Links: {name: string, url: string}[] = [
-	{ name: "Home", url: "/" }	
+	{ name: "Home", url: "/" },
+	{ name: "Hall of WHAT", url: "/hall-of-shame" },
+	{ name: "RemUI", url: "/remui" },
+	{ name: "Lookup", url: "/lookup" },
+	
 ]
 
 export default function Footer() {
@@ -15,14 +19,14 @@ export default function Footer() {
 	const isDeveloper = process.env.NODE_ENV !== "production";
 
 	return (
-		<footer className="py-4 px-2 w-full">
+		<footer className="py-4 px-2 w-full font-sans">
 			<Separator className="my-4"/>
 			<span className="inline-flex space-x-2">
 				<div className="w-2"/>
 				{
 					Links.map((a,i)=>(
 						<span className="inline-flex space-x-2" key={i.toString()}>
-							<Link href={a.url} className="text-muted-foreground hover:text-blue-700">
+							<Link href={a.url} className="text-muted-foreground hover:text-blue">
 								{a.name}
 							</Link>
 							{ i !== Links.length-1 ? (<Separator orientation="vertical"/>) : ""}
@@ -41,7 +45,7 @@ export default function Footer() {
 				</Link>
 				<DarkModeToggle className="w-6 h-6"/>
 				{ isDeveloper ? (
-					<span className="pr-1 text-muted-foreground">
+					<span className="pr-1 text-muted-foreground font-sans">
 						<Link href={"https://github.com/ocbwoy3/ocbwoy3.dev/"}>
 							{"env: "+process.env.NODE_ENV}
 						</Link>

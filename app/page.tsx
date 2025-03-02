@@ -61,20 +61,18 @@ export default function Page() {
 			</div>
 			<div className="fixed bottom-16 w-screen content-center flex items-center justify-center z-30 select-none">
 				<div className="text-center">
-					<Status />
+					<Status disallowNullApps={true} />
 					<br />
-					<div className="font-mono text-sm text-blue">
-						live from api.ocbwoy3.dev
-					</div>
-					<br />
-					<div className="font-mono text-xs text-blue">
-						<Stat jsonEntry="numBans" defaultValue={<><span className="font-bold">an unknown amount</span> of</>} /> banned
-						users
-					</div>
+					<br/>
+					<span className="font-sans">
+						⚠️ NEW - HALL OF SHAME UPDATE ⚠️
+					</span>
+					<br/>
+					<br/>
+					<a href="/hall-of-shame" className="font-sans text-center p-4 rounded-lg text-red bg-base text-xs">
+						CLICK HERE to see <Stat jsonEntry="numBans" defaultValue={<><span className="font-bold">an unknown amount</span> of</>} /> skids banned
+					</a>
 				</div>
-			</div>
-			<div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-30">
-				<BMFTHing />
 			</div>
 		</>
 	);

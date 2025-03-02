@@ -44,7 +44,7 @@ export default function RootLayout({
 				<ThemeProvider attribute="class" enableSystem>
 					<ToasterToast/>
 					<ToasterSonner/>
-					<main className="flex-grow">
+					<main className="min-h-screen flex-grow">
 						{children}
 					</main>
 					<Footer/>

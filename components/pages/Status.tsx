@@ -15,8 +15,8 @@ export function Status({
 	const status = useStatus();
 
 	let predicate = (a: Activity) => {
-		if (allowedApplicationIds.length === 0) return true;
 		if (disallowNullApps === true && !a.applicationId) return false;
+		if (allowedApplicationIds.length == 0) return true;
 		return allowedApplicationIds.includes(`${a.applicationId}`)
 			? true
 			: false;

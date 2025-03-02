@@ -74,6 +74,10 @@ export default function Legal() {
 				<a href="https://github.com/ocbwoy3/rem/issues/new" className="text-cyan-400 underline">{"making your own issue"}</a>
 				{" on our GitHub."}
 			</span>)
+		},
+		{
+			title: "Don't be an ass",
+			description: "Recommended, otherwise people will treat you like shit."
 		}
 	]
 
@@ -93,7 +97,7 @@ export default function Legal() {
 	})
 
 	return (
-		<div className="py-16 px-32 text-muted-foreground text-lg">
+		<div className="py-16 px-32 text-muted-foreground text-lg font-sans">
 			<div className="font-bold text-3xl">Server Rules</div>
 			{"You are to follow these rules on our Discord server at all times."}
 			<br/>

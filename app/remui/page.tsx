@@ -21,7 +21,7 @@ export default function Page() {
 
 	const [logEntriesR, setLogEntriesR] = useState<ReactNode[]>([
 		<div key="0" className="font-light">
-			<span className="font-bold h-full">{"[SOCKET] "}</span><span className="whitespace-pre-wrap">{"REMUI - The one and only"}</span>
+			<span className="font-bold h-full">{"[SOCKET] "}</span><span className="whitespace-pre-wrap">{"REM - Remote Admin"}</span>
 		</div>
 	]);
 

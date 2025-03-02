@@ -4,10 +4,10 @@ export default async function Page({ params }) {
 	const slug = (await params).slug;
 	const { default: Post } = await import(`@/docs/${slug}.mdx`);
 	return (
-		<div className="overflow-x-hidden px-4 pt-8 font-sans">
-			<MDXProvider>
-				<Post />
-			</MDXProvider>
+		<div className="overflow-x-hidden overflow-y-clip px-4 pt-8 font-sans">
+			{/* <MDXProvider> */}
+			<Post />
+			{/* </MDXProvider> */}
 		</div>
 	);
 }
@@ -22,6 +22,6 @@ export async function generateMetadata({ params }) {
 }
 
 export function generateStaticParams() {
-	return [{ slug: "intro" }, { slug: "appeal" }];
+	return [{ slug: "intro" }, { slug: "appeal" }, { slug: "announcing-hos" }];
 }
 export const dynamicParams = false;

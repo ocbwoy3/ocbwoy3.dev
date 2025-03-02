@@ -335,3 +335,34 @@ body {
 	}
 }
 */
+
+/* MDX */
+
+/* Custom styles for dash lists and numbered lists */
+.dash-list-item::before {
+	content: "-";
+	position: absolute;
+	left: -1rem;
+	padding-right: 8px;
+}
+
+.custom-number-item {
+	position: relative;
+	padding-left: 0.5rem;
+}
+
+.custom-number-item::before {
+	content: attr(data-number) ".";
+	position: absolute;
+	left: -1.75rem;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}

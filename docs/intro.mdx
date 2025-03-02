@@ -1,6 +1,7 @@
 import { Title } from "@/components/pages/Title";
 import { Stat } from "@/components/pages/StatusJSON";
 import { Status } from "@/components/pages/Status";
+import { BMFView } from "@/components/pages/bmf";
 
 export const metadata = {
 	title: "Introduction",
@@ -25,7 +26,7 @@ export const metadata = {
 
 This is a single-tick `code` component. 
 
-This (three-tick) codeblock is rendered with Shiki:
+These (three-tick) codeblock is rendered with Shiki:
 
 ```luau
 
@@ -33,3 +34,12 @@ This (three-tick) codeblock is rendered with Shiki:
 
 local owner: Player = game:GetService("Players"):FindFirstChild("OCboy3")
 ```
+
+```mdx-ts
+
+// TypeScript
+
+const x = 1;
+```
+
+<BMFView/>
