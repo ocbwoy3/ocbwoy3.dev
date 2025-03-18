@@ -6,6 +6,7 @@ import Footer from "@/components/site/Footer";
 import { ThemeProvider } from "@/components/site/ThemeProvider";
 import { Toaster as ToasterToast } from "@/components/ui/toaster";
 import { Toaster as ToasterSonner } from "@/components/ui/sonner";
+import Link from "next/link";
 
 const geistSans = localFont({
 	src: "./fonts/GeistVF.woff",
@@ -39,12 +40,17 @@ export default function RootLayout({
 
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen max-h-screen`}>
 				<PageLoadHandler/>
 				<ThemeProvider attribute="class" enableSystem>
 					<ToasterToast/>
 					<ToasterSonner/>
-					<main className="min-h-screen flex-grow">
+					<main className="flex-grow">
+						<Link href="/explore">
+							<button className="fixed top-2 right-2 bg-mantle stroke stroke-2 stroke-crust hover:stroke-blue rounded-full text-blue text-center justify-center w-16 h-16 z-[999]">
+								<span className="w-full justify-center text-2xl">m</span>
+							</button>
+						</Link>
 						{children}
 					</main>
 					<Footer/>

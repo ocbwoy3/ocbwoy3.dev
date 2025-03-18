@@ -29,7 +29,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			</h3>
 		),
 		p: ({ children }) => <p className="mb-4">{children}</p>,
-		blockquote: ({ children }) => <div className="bg-red">{children}</div>,
+		blockquote: ({ children, ...props }) => <div className="text-red pl-8 pr-8">{children}</div>,
 		code: ({ children, className }) => {
 			if (className?.includes("hljs")) {
 				const lang = (className || "language-luau")!

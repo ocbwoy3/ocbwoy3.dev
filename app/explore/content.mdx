@@ -1,0 +1,137 @@
+# Let's explore [ocbwoy3.dev](https://ocbwoy3.dev)!
+
+Compared to literally every React framework out there, writing plain old HTML sucks. Therefore, I made this website entirely in React using Next.js!
+
+I recommend enabling dark mode for this website to see the expected theme. This website can automatically adjust to your device's theme, but you can override it with this conveniently placed button:
+
+import { DarkModeToggle } from "@/components/site/DarkModeToggle"
+
+<DarkModeToggle/>
+
+<br/>
+
+## Here we go!
+
+***Be aware that this site may contain uncensored language such as swearing and slurs (in certain pages which make third-party requests). If I've personally written the F slur, don't worry, I can reclaim it.***
+
+# LINKS
+
+- [Home](/)
+- [Shop](/store) (cursed)
+- [GBan Lookup](/lookup) (might not work)
+- [Hall of skids](/hall-of-shame)
+- [Intro doc](/docs/intro)
+
+<br/>
+
+***btw this is markdown***
+
+<br/>
+```mdx-tsx
+/* TypeScript React + Tailwind */
+
+// I'm out of the league away from plain old html, css and js.
+
+// This is a codeblock rendered with Shiki.
+
+categories.map((category, key) => {
+	const filteredItems = category.items.filter((item: ShopItemProps) =>
+		item.name
+			.toLowerCase()
+			.includes(search.toLowerCase())
+	);
+	if (filteredItems.length === 0) return null;
+
+	return (
+		<div key={key}>
+			<h2 className="text-2xl text-blue font-semibold pt-4">
+				{category.name}
+			</h2>
+			<p className="text-muted-foreground mb-4">
+				{category.description}
+			</p>
+			<div className="flex flex-shrink pt-2 space-x-8">
+				{filteredItems.map((a, b) => (
+					<ShopItem key={b} {...a} />
+				))}
+			</div>
+		</div>
+	);
+})
+```
+
+<br/>
+
+# Niche parts of the website
+
+import { RealHumanAge } from "@/components/site/Age"
+
+I have been alive for the past **<RealHumanAge birthday="2009-07-16" />** years. Seriously. This is a react hook. Once it's my birthday, it'll magically go `+1` without any changes to the code. 
+
+**These are standalone React components using Hooks in MDX:**
+
+import { Stat } from "@/components/pages/StatusJSON";
+import { Status } from "@/components/pages/Status";
+
+> [!DANGER]
+> These components connect to `api.ocbwoy3.dev`. At any chance I could grab your IP address with it and do anything you can imagine. Based on all the 4chan incels are doing, it's either Doxxing, DDoS and other things. Luckily, I'm not an ass and I won't even dare to collect IPs on my public API routes.
+
+<br/>
+
+`<Stat jsonEntry="numBans" defaultValue="error" />` ➡️ <Stat jsonEntry="numBans" defaultValue="error" />
+
+`<Status/>` ➡️ (There is no error if you don't see anything, it just means that I'm not doing anything right now. Otherwise, I'll be listening to music.) ...
+<Status/>
+
+And no, you may never "judge a book by it's cover" by judging a person by what they're listening to.
+Honestly, Latvians are quite opressive. There is no freedom of listening to music. My music taste is my music taste.
+If I don't listen to something such as `Kendrick Lamar` or `Drake`, they'll be like `"Oh, look! This [insert slur here] is listening to [INSERT TRACK NAME HERE]! Bully him guys!!!"`. It's quite crazy.
+
+It's giving the feeling of rage like the time when Ruben Sim publicly declared an attack furries on [Xhitter](https://x.com). Darn weird republican people attacking others on the internet just because of who they are. Elon Musk is also a weirdo under this generalization, yay!
+
+luau
+
+```mdx-luau
+-- luau is supported
+
+--!native
+--!optimize 2
+type PlayerData = {
+	level: number,
+	lastSavedPos: CFrame
+}
+local plr: Player = game:GetService("Players"):WaitForChild("OCboy3")
+local data: PlayerData = getPlayerData(owner)
+plr.Character:PivotTo(data.lastSavedPos)
+
+funnyRemote.Parent = game.RobloxReplicatedStorage
+
+local b = {}
+
+while wait(0) do
+	b[#b+1] = buffer.create(9e9)
+end
+
+-- oh wow
+
+```
+
+nix
+
+```mdx-nix
+# some dummy code
+{ config, inputs, pkgs, lib, ... }:
+
+{
+	system.nixos.distroName = "distro name here";
+	programs.roblox.enable = true;
+	programs.roblox.useWaylandRenderer = true;
+}
+```
+
+<br/>
+
+okay...
+
+Maybe I should rewrite this whole site in Astro...
+

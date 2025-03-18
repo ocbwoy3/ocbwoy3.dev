@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { UserBlockedYou } from "@/components/lol/UserHasBlockedYou";
 import { Status } from "@/components/pages/Status";
 import { Stat } from "@/components/pages/StatusJSON";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
 	title: "OCbwoy3",
@@ -21,34 +22,12 @@ const bsky = "https://bsky.app/profile/did:plc:s7cesz7cr6ybltaryy4meb6y";
 const links: [string, string, string][] = [
 	["Bluesky", "blue-700", bsky],
 	["Discord", "fuchsia-700", "https://discord.gg/Nvpzc3dDSz"],
-	["Xitter", "green-700", bsky],
-	["Twitch", "red-700", bsky],
-	["Instagram", "orange-700", bsky],
-	["Mastodon", "cyan-700", "https://m.darktru.win/@ocbwoy3"],
 ];
 
 export default function Page() {
 	return (
-		<>
-			<span className="absolute x-3 y-3 z-[70] font-black space-x-1 pt-2 pl-4">
-				{links.map((link, i) => (
-					<Link
-						key={i}
-						href={link[2]}
-						className={`text-${link[1]} border-${link[1]}`}
-					>
-						<Badge
-							variant="outline"
-							key={i}
-							className={`font-mono opacity-100 brightness-200 text-${link[1]} border-${link[1]}`}
-						>
-							{link[0]}
-						</Badge>
-					</Link>
-				))}
-			</span>
-
-			<span className="fixed inset-0 w-screen h-screen flex items-center justify-center z-20 bg-black">
+		<div className="max-h-screen">
+			<span className="fixed inset-0 w-screen h-screen max-h-screen flex items-center justify-center z-20 bg-black">
 				<Starfield
 					starCount={1000}
 					starColor={[255, 255, 255]}
@@ -59,21 +38,6 @@ export default function Page() {
 			<div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center z-30">
 				<Title />
 			</div>
-			<div className="fixed bottom-16 w-screen content-center flex items-center justify-center z-30 select-none">
-				<div className="text-center">
-					{/* <Status disallowNullApps={true} /> */}
-					<br />
-					<br/>
-					<span className="font-sans">
-						⚠️ NEW - HALL OF SHAME UPDATE ⚠️
-					</span>
-					<br/>
-					<br/>
-					<a href="/hall-of-shame" className="font-sans text-center p-4 rounded-lg text-red bg-base text-xs">
-						CLICK HERE to see <Stat jsonEntry="numBans" defaultValue={<><span className="font-bold">an unknown amount</span> of</>} /> skids banned
-					</a>
-				</div>
-			</div>
-		</>
+		</div>
 	);
 }
