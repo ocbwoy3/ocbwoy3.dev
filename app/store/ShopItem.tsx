@@ -27,8 +27,9 @@ export function ShopItem({ id, name, price, image, description, link }: ShopItem
 							description: "this page is obviously a joke, ignore!!!",
 						});
 						setDidPress(true);
+					} else {
+							open(link);
 					}
-					open(link);
 				}}
 				className={`rounded-md outline outline-2 hover:outline-4 outline-offset-8 p-2 outline-${didPress ? 'red' : 'green'} text-${didPress ? 'red' : 'green'} font-mono text-xl w-full`}
 			>
