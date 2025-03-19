@@ -56,21 +56,14 @@ const categories: Category[] = [
 	},
 	{
 		name: "extras",
-		description: "for the lolz",
+		description: "for the lolz (don't take this seriously it's just a joke)",
 		items: [
 			{
 				id: "trump-paper",
-				name: "trump paper",
+				name: "toilet paper",
 				price: "1$",
 				image: "https://static-ocbwoy3dev.darktru.win/fascist-paper.png",
-				description: "make your bathroom great again",
-			},
-			{
-				id: "trump-mugshot",
-				name: "trump mugshot",
-				price: "299.95$",
-				image: "https://static-ocbwoy3dev.darktru.win/felon.webp",
-				description: "keep this guy in jail",
+				description: "bathroom thing",
 			},
 			{
 				id: "fund-website",
