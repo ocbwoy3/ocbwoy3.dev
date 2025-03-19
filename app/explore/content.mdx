@@ -66,7 +66,7 @@ categories.map((category, key) => {
 
 import { RealHumanAge } from "@/components/site/Age"
 
-I have been alive for the past **<RealHumanAge birthday="2009-07-16" />** years. Seriously. This is a react hook. Once it's my birthday, it'll magically go `+1` without any changes to the code. 
+I am **<RealHumanAge birthday="2009-07-16" />** years old. Seriously. This is a react hook. Once it's my birthday, it'll magically increment by one without any changes to the code. It's done automatically on the client. Don't underestimate React's power.
 
 **These are standalone React components using Hooks in MDX:**
 
@@ -83,11 +83,10 @@ import { Status } from "@/components/pages/Status";
 `<Status/>` ➡️ (There is no error if you don't see anything, it just means that I'm not doing anything right now. Otherwise, I'll be listening to music.) ...
 <Status/>
 
-And no, you may never "judge a book by it's cover" by judging a person by what they're listening to.
-Honestly, Latvians are quite opressive. There is no freedom of listening to music. My music taste is my music taste.
-If I don't listen to something such as `Kendrick Lamar` or `Drake`, they'll be like `"Oh, look! This [insert slur here] is listening to [INSERT TRACK NAME HERE]! Bully him guys!!!"`. It's quite crazy.
+Don't judge a book by it's cover. By judging a person by what they're listening to is bad.
+From my opinion: Honestly, I think that Latvians are quite opressive. There is no freedom of listening to music. My music taste is my music taste. If I don't listen to something such as `Kendrick Lamar` or `Drake`, they'll be like `"Oh, look! This [insert slur here] is listening to [INSERT TRACK NAME HERE]! Bully him guys!!!"`. It's quite crazy.
 
-It's giving the feeling of rage like the time when Ruben Sim publicly declared an attack furries on [Xhitter](https://x.com). Darn weird republican people attacking others on the internet just because of who they are. Elon Musk is also a weirdo under this generalization, yay!
+It's giving the feeling of despair like the time when Ruben Sim publicly declared an attack on furries on [Xhitter](https://x.com). 
 
 luau
 
@@ -123,9 +122,9 @@ nix
 { config, inputs, pkgs, lib, ... }:
 
 {
-	system.nixos.distroName = "distro name here";
+	system.nixos.distroName = "i use nix btw";
 	programs.roblox.enable = true;
-	programs.roblox.useWaylandRenderer = true;
+	programs.roblox.withTuxstrap = true;
 }
 ```
 
