@@ -196,12 +196,6 @@ export function BMFView() {
 
 	return (
 		<div suppressHydrationWarning>
-			<a
-				className="text-xl font-bold text-center underline decoration-dotted decoration-foreground"
-				href="https://en.wiktionary.org/wiki/moot#Etymology_5"
-			>
-				{"bmf?"}
-			</a>
 			<div className="h-2" />
 			{/* css is too difficult i wanna make my bmf component look like the ones in tiktok slideshows */}
 			<div
