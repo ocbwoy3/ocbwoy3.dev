@@ -7,12 +7,16 @@ import react from "@astrojs/react";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
-	site: "https://ocbwoy3.dev",
-	integrations: [mdx(), sitemap(), react()],
+  site: "https://ocbwoy3.dev",
+  integrations: [mdx(), sitemap(), react()],
 
-	vite: {
-		plugins: [tailwindcss()]
-	}
+  vite: {
+      plugins: [tailwindcss()]
+	},
+
+  adapter: vercel()
 });
